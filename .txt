@@ -1,0 +1,15 @@
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div id="google_translate_element"></div>
+
+**
+mongodb+srv://PDA:$$$^Quantum360#^@cluster0.x3bwux4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+**

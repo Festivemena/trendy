@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Funds</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+    </head>
+    <body class="bg-darkbg font-Montserrat">
+        <!-- LOADER -->
+        <div
+            class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+            ></div>
+        </div>
+
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="giftBoxSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full space-y-3 pb-3"
+                    >
+                        <section
+                            class="flex flex-col justify-center items-center space-y-4 bg-darkbg1 w-full py-4"
+                        >
+                            <img
+                                src="./assets/gift-box.png"
+                                alt=""
+                                class="w-36 mx-auto"
+                            />
+                            <p class="text-2xl text-white font-black">
+                                Gift Box
+                            </p>
+                        </section>
+                        <hr class="text-gray-600" />
+                        <p class="text-center w-10/12 pb-2">
+                            One-time PROMO for new members only. <br />
+                            Enjoy a 20% bonus when you deposit 1000 and above.
+                            Offer is available for a limited time.
+                        </p>
+                        <button
+                            data-request="advertFee"
+                            class="gift-box-request rounded-lg py-2 px-4 bg-darkbg1 text-white"
+                        >
+                            Activate GiftBox
+                        </button>
+                        <div class="mt-3"></div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-darkbg1 text-gray-100 px-4 sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-white hover:text-gray-200"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+            </div>
+            <p class="text-white text-center font-bold my-auto">
+                <span class="uppercase text-amber-500" id="my-user-username">
+                </span>
+                <br />
+                <span class="uppercase" id="my-user-aff-bal"></span>
+            </p>
+            <ul class="relative flex items-center space-x-2">
+                <li class="relative" data-te-dropdown-ref>
+                    <a
+                        class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                    >
+                        <img
+                            src="./user.png"
+                            class="w-8 rounded-full"
+                            alt="Avatar"
+                            loading="lazy"
+                        />
+                    </a>
+                    <ul
+                        class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-zinc-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="dropdownMenuButton2"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                href="profile.html"
+                                data-te-dropdown-item-ref
+                                >My profile</a
+                            >
+                        </li>
+                        <!-- <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 "
+                                href="#"
+                                data-te-dropdown-item-ref
+                                >Gift Box</a
+                            >
+                        </li> -->
+                        <li>
+                            <!-- type="button" -->
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                data-te-toggle="modal"
+                                data-te-target="#giftBoxSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Gift Box
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="cursor-pointer sign-out-acc block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                data-te-dropdown-item-ref
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-darkbg1 text-gray-100 pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="dashboard.html"
+                                >
+                                    <img src="./assets/home.png" class="w-5" />
+                                    <span class="select-none ml-2"
+                                        >Dashboard</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="portfolio.html"
+                                >
+                                    <img
+                                        src="./assets/portfolio.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Portfolio</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="deposit.html"
+                                >
+                                    <img
+                                        src="./assets/download.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Deposit</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="funds.html"
+                                >
+                                    <img src="./assets/funds.png" class="w-5" />
+                                    <span class="select-none ml-2">Funds</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="account-status.html"
+                                >
+                                    <img
+                                        src="./assets/account-status.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Account Status</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="marketing-landscape.html"
+                                >
+                                    <img
+                                        src="./assets/marketing-landscape.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Marketing Landscape</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="withdrawal.html"
+                                >
+                                    <img
+                                        src="./assets/upload.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Withdrawal</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="transactions.html"
+                                >
+                                    <img
+                                        src="./assets/transactions.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Transaction</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="settings.html"
+                                >
+                                    <img
+                                        src="./assets/settings.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Settings</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="referrals.html"
+                                >
+                                    <img
+                                        src="./assets/referrals.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Referrals</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="cursor-pointer sign-out-acc flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                >
+                                    <img
+                                        src="./assets/logout.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Logout</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                            <li>
+                                <img
+                                    src="./assets/nav-team.gif"
+                                    alt=""
+                                    class="w-9/12"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navigation group end-->
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+
+        <section class="flex flex-col space-y-3 lg:flex-row lg:space-x-3">
+            <!--Main layout-->
+            <main
+                class="mt-24 lg:mb-4 flex flex-col text-gray-100 mx-auto lg:ml-3 w-full space-y-4 lg:w-3/4"
+            >
+                <!-- STARTER -->
+                <div
+                    class="bg-darkbg2 w-11/12 lg:w-full mx-auto p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div
+                        class="hidden lg:flex container justify-between items-center px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-lg font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-lg font-medium"> | </span>
+                                <span class="text-lg font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Starter - Growth</h3>
+                        </div>
+                        <div class="mt-10 mt-md-0">
+                            <button
+                                id="add-starter"
+                                class="add-starter inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                data-plan-type="Starter-Growth-Plan"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="hidden lg:flex px-2 text-blue-200" />
+
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div class="flex justify-start items-center">
+                            <div class="min-w-100">
+                                <p class="mb-0">Minimum</p>
+                                <h6 class="mb-0"><span class="acc-curr-use"></span>100.00</h6>
+                            </div>
+                            <div class="mx-lg-50 mx-20 min-w-70">
+                                <p class="mb-0">Growth Rate</p>
+                                <h6 class="mb-0 text-red-500">120%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0">Duration</p>
+                                <h6 class="mb-0">3 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+                    <div
+                        class="lg:hidden w-full flex flex-col justify-center items-start px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Starter - Growth</h3>
+                        </div>
+                        <div class="mt-4">
+                            <button
+                                id="add-starter"
+                                class="add-starter inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                data-plan-type="Starter-Growth-Plan"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+
+                    <hr class="lg:hidden px-2 text-blue-200" />
+
+                    <div
+                        class="lg:hidden flex justify-between items-center px-2"
+                    >
+                        <div
+                            class="w-full mx-auto flex flex-row justify-between items-center space-y-1"
+                        >
+                            <div class="min-w-100">
+                                <p class="mb-0 text-sm">Minimum</p>
+                                <h6 class="mb-0 text-sm"><span class="acc-curr-use"></span>100.00</h6>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 text-sm">Growth Rate</p>
+                                <h6 class="mb-0 text-sm text-red-500">120%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-sm">Duration</p>
+                                <h6 class="mb-0 text-sm">3 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- STARTER -->
+
+                <!-- BASIC -->
+
+                <div
+                    class="bg-darkbg2 w-11/12 lg:w-full mx-auto p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div
+                        class="hidden lg:flex container justify-between items-center px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-lg font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-lg font-medium"> | </span>
+                                <span class="text-lg font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Basic - Growth</h3>
+                        </div>
+                        <div class="mt-10 mt-md-0">
+                            <button
+                                id="add-basic"
+                                data-plan-type="Basic-Growth-Plan"
+                                class="add-basic inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="hidden lg:flex px-2 text-blue-200" />
+
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div class="flex justify-start items-center">
+                            <div class="min-w-100">
+                                <p class="mb-0">Minimum</p>
+                                <h6 class="mb-0"><span class="acc-curr-use"></span>500.00</h6>
+                            </div>
+                            <div class="mx-lg-50 mx-20 min-w-70">
+                                <p class="mb-0">Growth Rate</p>
+                                <h6 class="mb-0 text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0">Duration</p>
+                                <h6 class="mb-0">3 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+                    <div
+                        class="lg:hidden w-full flex flex-col justify-center items-start px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Basic - Growth</h3>
+                        </div>
+                        <div class="mt-4">
+                            <button
+                                id="add-basic"
+                                data-plan-type="Basic-Growth-Plan"
+                                class="add-basic inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+
+                    <hr class="lg:hidden px-2 text-blue-200" />
+
+                    <div
+                        class="lg:hidden flex justify-between items-center px-2"
+                    >
+                        <div
+                            class="w-full mx-auto flex flex-row justify-between items-center space-y-1"
+                        >
+                            <div class="min-w-100">
+                                <p class="mb-0 text-sm">Minimum</p>
+                                <h6 class="mb-0 text-sm"><span class="acc-curr-use"></span>500.00</h6>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 text-sm">Growth Rate</p>
+                                <h6 class="mb-0 text-sm text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-sm">Duration</p>
+                                <h6 class="mb-0 text-sm">3 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BASIC -->
+
+                <!-- BRONZE -->
+
+                <div
+                    class="bg-darkbg2 w-11/12 lg:w-full mx-auto p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div
+                        class="hidden lg:flex container justify-between items-center px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Bronze - Growth</h3>
+                        </div>
+                        <div class="mt-10 mt-md-0">
+                            <button
+                                id="add-bronze"
+                                data-plan-type="Bronze-Growth-Plan"
+                                class="add-bronze inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="hidden lg:flex px-2 text-blue-200" />
+
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div class="flex justify-start items-center">
+                            <div class="min-w-100">
+                                <p class="mb-0">Minimum</p>
+                                <h6 class="mb-0"><span class="acc-curr-use"></span>1500.00</h6>
+                            </div>
+                            <div class="mx-lg-50 mx-20 min-w-70">
+                                <p class="mb-0">Growth Rate</p>
+                                <h6 class="mb-0 text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0">Duration</p>
+                                <h6 class="mb-0">7 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+                    <div
+                        class="lg:hidden w-full flex flex-col justify-center items-start px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Bronze - Growth</h3>
+                        </div>
+                        <div class="mt-4">
+                            <button
+                                id="add-bronze"
+                                data-plan-type="Bronze-Growth-Plan"
+                                class="add-bronze inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+
+                    <hr class="lg:hidden px-2 text-blue-200" />
+
+                    <div
+                        class="lg:hidden flex justify-between items-center px-2"
+                    >
+                        <div
+                            class="w-full mx-auto flex flex-row justify-between items-center space-y-1"
+                        >
+                            <div class="min-w-100">
+                                <p class="mb-0">Minimum</p>
+                                <h6 class="mb-0"><span class="acc-curr-use"></span>1500.00</h6>
+                            </div>
+                            <div class="">
+                                <p class="mb-0">Growth Rate</p>
+                                <h6 class="mb-0 text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0">Duration</p>
+                                <h6 class="mb-0">7 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRONZE -->
+
+                <!-- GOLD -->
+
+                <div
+                    class="bg-darkbg2 w-11/12 lg:w-full mx-auto p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div
+                        class="hidden lg:flex container justify-between items-center px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Gold - Growth</h3>
+                        </div>
+                        <div class="mt-10 mt-md-0">
+                            <button
+                                id="add-gold"
+                                data-plan-type="Gold-Growth-Plan"
+                                class="add-gold inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="hidden lg:flex px-2 text-blue-200" />
+
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div class="flex justify-start items-center">
+                            <div class="min-w-100">
+                                <p class="mb-0 text-sm">Minimum</p>
+                                <h6 class="mb-0 text-sm"><span class="acc-curr-use"></span>5000.00</h6>
+                            </div>
+                            <div class="mx-lg-50 mx-20 min-w-70">
+                                <p class="mb-0 text-sm">Growth Rate</p>
+                                <h6 class="mb-0 text-sm text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-sm">Duration</p>
+                                <h6 class="mb-0 text-sm">7 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+                    <div
+                        class="lg:hidden w-full flex flex-col justify-center items-start px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Gold - Growth</h3>
+                        </div>
+                        <div class="mt-4">
+                            <button
+                                id="add-gold"
+                                data-plan-type="Gold-Growth-Plan"
+                                class="add-gold inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+
+                    <hr class="lg:hidden px-2 text-blue-200" />
+
+                    <div
+                        class="lg:hidden flex justify-between items-center px-2"
+                    >
+                        <div
+                            class="w-full mx-auto flex flex-row justify-between items-center space-y-1"
+                        >
+                            <div class="min-w-100">
+                                <p class="mb-0 text-sm">Minimum</p>
+                                <h6 class="mb-0 text-sm"><span class="acc-curr-use"></span>5000.00</h6>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 text-sm">Growth Rate</p>
+                                <h6 class="mb-0 text-sm text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-sm">Duration</p>
+                                <h6 class="mb-0 text-sm">7 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GOLD -->
+
+                <!-- Premium -->
+
+                <div
+                    class="bg-darkbg2 w-11/12 lg:w-full mx-auto p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div
+                        class="hidden lg:flex container justify-between items-center px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-lg font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-lg font-medium"> | </span>
+                                <span class="text-lg font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Premium - Growth</h3>
+                        </div>
+                        <div class="mt-10 mt-md-0">
+                            <button
+                                id="add-premium"
+                                data-plan-type="Premium"
+                                class="add-premium inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr class="hidden lg:flex px-2 text-blue-200" />
+
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div class="flex justify-start items-center">
+                            <div class="min-w-100">
+                                <p class="mb-0">Minimum</p>
+                                <h6 class="mb-0"><span class="acc-curr-use"></span>10000.00</h6>
+                            </div>
+                            <div class="mx-lg-50 mx-20 min-w-70">
+                                <p class="mb-0">Growth Rate</p>
+                                <h6 class="mb-0 text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0">Duration</p>
+                                <h6 class="mb-0">7 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+                    <div
+                        class="lg:hidden w-full flex flex-col justify-center items-start px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-base font-medium text-danger-500"
+                                    >Equity</span
+                                >
+                                <span class="text-base font-medium"> | </span>
+                                <span
+                                    class="text-base font-medium text-gray-300"
+                                    >Finance</span
+                                >
+                            </p>
+                            <h3 class="mb-0 fw-500">Premium - Growth</h3>
+                        </div>
+                        <div class="mt-4">
+                            <button
+                                id="add-premium"
+                                data-plan-type="Premium-Growth-Plan"
+                                class="add-premium inline-block rounded bg-darkbg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            >
+                                Add Funds
+                            </button>
+                        </div>
+                    </div>
+                    <!-- MOBILE -->
+
+                    <hr class="lg:hidden px-2 text-blue-200" />
+
+                    <div
+                        class="lg:hidden flex justify-between items-center px-2"
+                    >
+                        <div
+                            class="w-full mx-auto flex flex-row justify-between items-center space-y-1"
+                        >
+                            <div class="min-w-100">
+                                <p class="mb-0 text-sm">Minimum</p>
+                                <h6 class="mb-0 text-sm"><span class="acc-curr-use"></span>10000.00</h6>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 text-sm">Growth Rate</p>
+                                <h6 class="mb-0 text-sm text-red-500">180%</h6>
+                            </div>
+                            <div>
+                                <p class="mb-0 text-sm">Duration</p>
+                                <h6 class="mb-0 text-sm">7 Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium -->
+            </main>
+
+            <!-- MAIN MOBILE -->
+            <main
+                class="w-full lg:hidden flex flex-col mb-4 justify-start items-center space-y-3"
+            >
+                <a
+                    href="deposit.html"
+                    class="w-11/12 text-center outline-none bg-darkbg3 px-3 py-2 rounded-lg text-white"
+                >
+                    Add Funds
+                </a>
+                <div
+                    class="mr-deals w-11/12 bg-darkbg2 mx-auto mb-4 p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div class="flex justify-between items-center px-2">
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span
+                                    class="text-lg text-center font-medium text-gray-300"
+                                    >Mega Resale Deals</span
+                                >
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="px-2 text-blue-200" />
+
+                    <div class="flex justify-between items-center px-2">
+                        <div class="flex justify-start items-center space-x-1">
+                            <img
+                                id="te-logo"
+                                class="mr-2 w-8"
+                                src="./logo.png"
+                                alt="TE Logo"
+                                draggable="false"
+                            />
+                            <div class="">
+                                <p class="text-white">
+                                    Generate rapid profit from high speed mega
+                                    resales
+                                    <br />
+                                    Growth - <span class="acc-curr-use"></span>50000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+            </main>
+            <!-- MAIN MOBILE -->
+
+            <main
+                class="container pt-7 w-1/4 hidden lg:flex flex-col justify-start items-center space-y-3"
+            >
+                <a
+                    href="deposit.html"
+                    class="w-11/12 mt-16 text-center outline-none bg-darkbg3 px-3 py-2 rounded-lg text-white"
+                >
+                    Add Funds
+                </a>
+                <div
+                    class="cursor-pointer mr-deals container w-11/12 bg-darkbg2 mx-auto p-2 space-y-2 flex justify-between flex-col rounded-md"
+                >
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div>
+                            <p class="flex flex-row justify-between space-x-1">
+                                <span class="text-lg font-medium text-gray-300"
+                                    >Mega Resale Deals</span
+                                >
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="px-2 text-blue-200" />
+
+                    <div
+                        class="hidden lg:flex justify-between items-center px-2"
+                    >
+                        <div class="flex justify-start items-center space-x-1">
+                            <img
+                                id="te-logo"
+                                class="mr-2 w-8"
+                                src="./logo.png"
+                                alt="TE Logo"
+                                draggable="false"
+                            />
+                            <div class="">
+                                <p class="text-white">
+                                    Generate rapid profit from high speed mega
+                                    resales
+                                    <br />
+                                    Growth - <span class="acc-curr-use"></span>50000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!--Main layout-->
+        </section>
+
+        <!-- Button trigger modal -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#planAmountModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-modal-btn"
+        ></button>
+
+        <!-- Modal top right-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="planAmountModal"
+            tabindex="-1"
+            aria-labelledby="planAmountModalLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto w-full space-y-2 bg-white rounded-none"
+                        data-te-modal-body-ref
+                    >
+                        <div class="ml-8">
+                            <p class="my-2">Enter Amount</p>
+                        </div>
+                        <div class="ml-8">
+                            <input
+                                required
+                                class="my-2 p-2 border"
+                                placeholder="200"
+                                type="number"
+                                id="user-amount"
+                            />
+                        </div>
+                        <div class="ml-8">
+                            <small
+                                class="my-2"
+                                id="modal-error-message"
+                            ></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-end bg-white rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                            id="add-plan"
+                        >
+                            Add Funds
+                        </button>
+                        <button
+                            type="button"
+                            class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+                            data-te-modal-dismiss
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mega Resales Unavailable  modal -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#megaResalesModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-mega-resales-btn"
+        ></button>
+
+        <!-- Modal Mega Resales Unavailable-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="megaResalesModal"
+            tabindex="-1"
+            aria-labelledby="megaResalesModalLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!-- <div
+               class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+            > -->
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="my-2">
+                                Mega Resales unavailable!!! <br />
+                                Check back in 24 hours
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Mega Resales Available  modal -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#megaResalesAvailableModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-mega-resales-available-btn"
+        ></button>
+
+        <!-- Modal Mega Resales Available-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-3 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="megaResalesAvailableModal"
+            tabindex="-1"
+            aria-labelledby="megaResalesAvailableModalLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] mx-auto pointer-events-auto relative flex w-10/12 flex-col rounded-md border-none bg-transparent bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+                >
+                    <div
+                        class="flex w-full mx-auto flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto w-full space-y-2 bg-white rounded-b-md"
+                        data-te-modal-body-ref
+                    >
+                        <div
+                            class="flex flex-col justify-center items-center space-y-2"
+                        >
+                            <p class="uppercase text-center font-bold">
+                                Mega Resales zone <br />
+                            </p>
+                            <p class="text-center">High-Speed Resales Active</p>
+                        </div>
+                        <div
+                            class="w-full bg-darkbg2 text-white space-y-3 rounded-md py-4 flex flex-col justify-center items-center px-2"
+                            id="gold-growth"
+                        >
+                            <div>
+                                <h3 class="mb-0 fw-500">Gold - Growth</h3>
+                            </div>
+                            <div
+                                class="mt-2 w-full flex justify-between items-center px-2"
+                            >
+                                <button
+                                    data-plan-type="Gold-Growth-Plan"
+                                    class="add-gold inline-block rounded bg-darkbg4 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                >
+                                    Add Funds
+                                </button>
+                                <a
+                                    href="gold-insights.html"
+                                    class="insight-btn inline-block rounded bg-darkbg4 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                >
+                                    Insight
+                                </a>
+                            </div>
+                            <hr />
+                            <div
+                                class="w-full flex justify-between items-center"
+                            >
+                                <span
+                                    class="inline-block text-center rounded px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    Minimum <br />
+                                    3,000.00
+                                </span>
+                                <span
+                                    class="inline-block text-center rounded px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    Duration <br />
+                                    2 days
+                                </span>
+                            </div>
+                            <div class="">
+                                <small
+                                    class="my-2 text-red-400 font-medium"
+                                ></small>
+                            </div>
+                        </div>
+                        <div
+                            class="w-full bg-darkbg2 text-white space-y-3 rounded-md py-4 flex flex-col justify-center items-center px-2"
+                            id="premium-growth"
+                        >
+                            <div>
+                                <h3 class="mb-0 fw-500">Premium - Growth</h3>
+                            </div>
+                            <div
+                                class="mt-2 w-full flex justify-between items-center px-2"
+                            >
+                                <button
+                                    data-plan-type="Premium-Growth-Plan"
+                                    class="add-premium inline-block rounded bg-darkbg4 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                >
+                                    Add Funds
+                                </button>
+                                <button
+                                    data-plan-type="Premium-Insight"
+                                    class="insight-btn inline-block rounded bg-darkbg4 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                >
+                                    Insight
+                                </button>
+                            </div>
+                            <hr />
+                            <div
+                                class="w-full flex justify-between items-center"
+                            >
+                                <span
+                                    class="inline-block text-center rounded px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    Minimum <br />
+                                    5,000.00
+                                </span>
+                                <span
+                                    class="inline-block text-center rounded px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    Duration <br />
+                                    2 days
+                                </span>
+                            </div>
+                            <div class="">
+                                <small
+                                    class="my-2 text-red-400 font-medium"
+                                ></small>
+                            </div>
+                        </div>
+                        <div
+                            class="w-full bg-darkbg2 text-white space-y-3 rounded-md py-4 flex flex-col justify-center items-center px-2"
+                            id="vip-growth"
+                        >
+                            <div>
+                                <h3 class="mb-0 fw-500">VIP - Growth</h3>
+                            </div>
+                            <div
+                                class="mt-2 w-full flex justify-between items-center px-2"
+                            >
+                                <button
+                                    data-plan-type="VIP-Growth-Plan"
+                                    class="add-vip inline-block rounded bg-darkbg4 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                >
+                                    Add Funds
+                                </button>
+                                <button
+                                    data-plan-type="VIP-Insight"
+                                    class="insight-btn inline-block rounded bg-darkbg4 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                >
+                                    Insight
+                                </button>
+                            </div>
+                            <hr />
+                            <div
+                                class="w-full flex justify-between items-center"
+                            >
+                                <span
+                                    class="inline-block text-center rounded px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    Minimum <br />
+                                    10,000.00
+                                </span>
+                                <span
+                                    class="inline-block text-center rounded px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    Duration <br />
+                                    2 days
+                                </span>
+                            </div>
+                            <div class="">
+                                <small
+                                    class="my-2 text-red-400 font-medium"
+                                ></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Balance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountBalanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-account-balance-error-btn"
+        ></button>
+
+        <!-- Account Balance Error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountBalanceError"
+            tabindex="-1"
+            aria-labelledby="accountBalanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Couldn't process your Account Balance <br />
+                                Contact Support for more information.
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Low Performance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#lowPerformanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="low-performance-error-btn"
+        ></button>
+
+        <!-- Low Performance Error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="lowPerformanceError"
+            tabindex="-1"
+            aria-labelledby="lowPerformanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center">
+                                Low Performance
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Generate more revenue to boost your profit.
+                                <br />
+                                Visit
+                                <a
+                                    href="marketing-landscape.html"
+                                    class="text-red-600"
+                                    >Marketing Landscape </a
+                                ><br />
+                                Contact Support for more information.
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Upgrade Time btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#upgradeTimeError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="upgrade-time-error-btn"
+        ></button>
+
+        <!-- Upgrade Time Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="upgradeTimeError"
+            tabindex="-1"
+            aria-labelledby="upgradeTimeErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center">
+                                It's time to upgrade
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                You have exceeded the duration of your current
+                                plan <br />
+                                Upgrade your account
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Account Verification btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountVerificationError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="account-verification-error-btn"
+        ></button>
+
+        <!-- Account Verification Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountVerificationError"
+            tabindex="-1"
+            aria-labelledby="accountVerificationErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center uppercase">
+                                account verification
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Mandatory for Accounts above <span class="acc-curr-use"></span>20000 Balance
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Account Maintenance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountMaintenanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="account-maintenance-error-btn"
+        ></button>
+
+        <!-- Account Maintenance Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountMaintenanceError"
+            tabindex="-1"
+            aria-labelledby="accountMaintenanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col py-2 px-4 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center uppercase">
+                                your account is currently undergoing maintenance
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                We apologize for any inconvinience and will be
+                                back soon <br />
+                                Contact Support for more information
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Mega Resales Popup btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#megaResalesPopup"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="mega-resales-error-btn"
+        ></button>
+
+        <!-- Mega Resales Popup Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="megaResalesPopup"
+            tabindex="-1"
+            aria-labelledby="megaResalesPopupLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="relative flex flex-col mx-auto w-full"
+                        data-te-modal-body-ref
+                    >
+                        <div
+                            class="mb-4 bg-darkbg flex flex-col justify-center space-y-3 items-center py-6"
+                        >
+                            <img
+                                src="./assets/megaresalelogo.png"
+                                class="max-w-full max-h-full h-auto w-44 mx-auto"
+                            />
+                            <p
+                                class="uppercase font-bold text-white text-center"
+                            >
+                                available now
+                            </p>
+                        </div>
+                        <div
+                            class="container mx-auto flex flex-col space-y-2 justify-center items-center"
+                        >
+                            <p class="font-black text-center text-darkbg px-4">
+                                For Limited Investors only
+                            </p>
+                            <p class="text-center text-darkbg px-4">
+                                Expires in 48 hours
+                            </p>
+                            <p class="text-center px-4">
+                                Generate fast-paced returns on your capital from
+                                high-speed mega resales. Earn up to 10 times
+                                your initial capital.
+                            </p>
+                        </div>
+
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="mega-resale-rs-btn"
+                        >
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <script type="module" src="./src/app/verify-user.js"></script>
+        <script type="module" src="./src/page.js"></script>
+
+        <script
+            type="text/javascript"
+            src="./node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+        ></script>
+        <script type="module" src="./src/tailwind-elements.js"></script>
+        <script type="module" src="./src/custom-styles.js"></script>
+        <script type="module" src="./src/index.js"></script>
+        <script type="module" src="./src/app/funds.js"></script>
+        <script type="module" src="./src/app/nav.js"></script>
+        <script type="module" src="./src/app/errors-custom.js"></script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

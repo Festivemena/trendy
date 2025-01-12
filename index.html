@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Premium Digital Affifliate</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="./node_modules/apexcharts/dist/apexcharts.css"
+        />
+
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+
+        <style></style>
+    </head>
+
+    <body class="bg-white font-Montserrat">
+        <!-- LOADER -->
+        <div
+            class="fixed hidden top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+            ></div>
+        </div>
+
+        <!-- LOADER -->
+        <!--Main Navigation-->
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-white text-gray-950 px-4 shadow-md sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-gray-950 hover:text-gray-700"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        class="h-8 w-8 stroke-[.11rem]"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8 stroke-[.11rem]"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./assets/index-logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+                <p class="text-gray-950 font-extrabold">
+                    Premium Digital Affiliate
+                </p>
+            </div>
+            <!-- <p class="text-white text-center font-bold my-auto">
+            <span class="uppercase text-amber-500" id="my-user-username">
+            </span>
+            <br />
+            <span class="uppercase" id="my-user-aff-bal"></span>
+         </p> -->
+            <ul class="relative flex items-center space-x-2">
+                <!--  
+            <li class="relative" data-te-dropdown-ref>
+               <a
+                  class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-te-dropdown-toggle-ref
+                  aria-expanded="false"
+               >
+                  <img
+                     src="./user.png"
+                     class="w-8 rounded-full"
+                     alt="Avatar"
+                     loading="lazy"
+                  />
+               </a>
+               <ul
+                  class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-zinc-700 [&[data-te-dropdown-show]]:block"
+                  aria-labelledby="dropdownMenuButton2"
+                  data-te-dropdown-menu-ref
+               >
+                  <li>
+                     <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                        href="profile.html"
+                        data-te-dropdown-item-ref
+                        >My profile</a
+                     >
+                  </li>
+                  <li>
+                     <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                        href="#"
+                        data-te-dropdown-item-ref
+                        >Gift Box</a
+                     >
+                  </li>
+                  <li>
+                     <a
+                        class="cursor-pointer sign-out-acc block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                        data-te-dropdown-item-ref
+                        >Logout</a
+                     >
+                  </li>
+               </ul>
+            </li> -->
+            </ul>
+        </nav>
+
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-white text-darkbg pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="index.html"
+                                >
+                                    <img
+                                        src="./assets/home-dark.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="about.html"
+                                >
+                                    <img src="./assets/about.png" class="w-5" />
+                                    <span class="select-none ml-2">About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="plans.html"
+                                >
+                                    <img
+                                        src="./assets/check-list.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Plans</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="faqs.html"
+                                >
+                                    <img
+                                        src="./assets/questions.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">FAQs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    id="what-people-think-click"
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="#what-people-think"
+                                >
+                                    <img
+                                        src="./assets/client.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Clients</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                            <li>
+                                <img
+                                    src="./assets/nav-team.gif"
+                                    alt=""
+                                    class="w-9/12"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+        <main
+            class="mt-24 lg:mb-4 flex flex-col justify-center items-center text-gray-950 mx-auto w-full space-y-6 lg:w-3/4"
+        >
+            <section
+                class="container flex flex-col justify-center items-center mx-auto py-2 lg:space-x-3 lg:flex-row"
+            >
+                <p
+                    class="font-black text-gray-950 text-center lg:text-3xl text-2xl"
+                >
+                    The Power of
+                    <span
+                        class="text-darkbg4 font-black text-center lg:text-3xl text-2xl"
+                    >
+                        Affiliate | Digital | Network Marketing
+                    </span>
+                </p>
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center mx-auto pt-2 lg:space-x-3"
+            >
+                <p class="text-center font-semibold">
+                    A lucrative path to financial growth. This model has gained
+                    popularity due to its simplicity, accessibility, and the
+                    potential for substantial financial gain returns.
+                </p>
+                <section class="container mx-auto">
+                    <div class="flex flex-wrap items-center justify-center">
+                        <div class="p-2">
+                            <p
+                                class="text-gray-500 flex flex-row justify-center items-center text-xs text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-4 h-4"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span> No setup fee</span>
+                            </p>
+                        </div>
+                        <div class="p-2">
+                            <p
+                                class="text-gray-500 flex flex-row justify-center items-center text-xs text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-4 h-4"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>Customer Service 24/7</span>
+                            </p>
+                        </div>
+                        <div class="p-2">
+                            <p
+                                class="text-gray-500 flex flex-row justify-center items-center text-xs text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-4 h-4"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>No credit card required</span>
+                            </p>
+                        </div>
+                        <div class="p-2">
+                            <p
+                                class="text-gray-500 flex flex-row justify-center items-center text-xs text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-4 h-4"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>Cancel any time</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section
+                class="container flex flex-col space-y-3 px-2 justify-center items-center rounded-lg shadow-sm py-1 lg:w-full"
+            >
+                <form class="w-full md:w-2/3 lg:w-1/2 mx-auto" id="login-form">
+                    <!-- Your login form fields go here -->
+                    <div class="mb-2">
+                        <label
+                            for="email"
+                            class="block text-black text-sm font-bold mb-2"
+                            >Email:</label
+                        >
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                            placeholder="email address"
+                        />
+                    </div>
+
+                    <div class="mb-2 relative">
+                        <label
+                            for="password"
+                            class="block text-black text-sm font-bold mb-2"
+                            >Password:</label
+                        >
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 pr-10"
+                            placeholder="password"
+                        />
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="absolute top-3 right-0 pr-3 flex items-center h-full"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-5 h-5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                                />
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-darkbg2 text-white font-bold py-2 px-4 rounded-md hover:opacity-80 focus:outline-none"
+                    >
+                        Login
+                    </button>
+                </form>
+                <a
+                    href="register.html"
+                    class="bg-darkbg2 text-white text-center w-full font-bold py-2 px-4 rounded-md md:w-2/3 lg:w-1/2 mx-auto hover:opacity-80 focus:outline-none"
+                >
+                    Sign Up
+                </a>
+                <p class="text-center text-sm">
+                    Forgot password? Click
+                    <a
+                        class="text-blue-500 cursor-pointer"
+                        id="reset-password-btn"
+                        >here</a
+                    >
+                    to reset.
+                </p>
+            </section>
+            <div
+                class="container flex flex-col justify-center items-center space-y-3 pt-8"
+            >
+                <p class="text-xl font-bold">Premium Digital Affiliate</p>
+                <div class="text-left">
+                    The best solution in the market for direct engagement and
+                    multi-level networks where every click is an opportunity and
+                    every investment yields results.
+                    <!-- <p class="mx-auto"> -->
+                    <div
+                        class="flex flex-col flex-wrap items-start justify-start -mx-2"
+                    >
+                        <div class="">
+                            <p
+                                class="flex flex-row justify-center items-center text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>Daily rewards</span>
+                            </p>
+                        </div>
+                        <div class="">
+                            <p
+                                class="flex flex-row justify-center items-center text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>Flexible Configuration</span>
+                            </p>
+                        </div>
+                        <div class="">
+                            <p
+                                class="flex flex-row justify-center items-center text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>No hold period</span>
+                            </p>
+                        </div>
+                        <div class="">
+                            <p
+                                class="flex flex-row justify-center items-center text-nowrap"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 12.75 6 6 9-13.5"
+                                    />
+                                </svg>
+                                <span>Unlimited payouts</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- </p> -->
+                </div>
+            </div>
+            <section
+                class="container flex flex-col justify-center items-center space-y-6 py-3"
+                id="offerings"
+            ></section>
+            <section class="container flex justify-center">
+                <p
+                    class="w-fit bg-[#ffdc64] p-5 rounded-xl text-xs flex flex-row justify-center items-center space-x-3 text-left lg:space-x-2 lg:flex-row"
+                >
+                    <span class="text-[#2196f3] text-nowrap text-base"
+                        >up to
+                        <span class="text-2xl font-extrabold pr-2"> 45%</span>
+                    </span>
+                    <span class="text-sm">
+                        of spread and commissions payout per direct referral
+                    </span>
+                </p>
+            </section>
+            <section class="container flex justify-center">
+                <p
+                    class="w-fit bg-[#ffdc64] p-5 rounded-xl flex flex-row justify-center items-center space-x-3 text-left lg:space-x-2 lg:flex-row"
+                >
+                    <span class="text-[#2196f3] text-nowrap text-base"
+                        >up to
+                        <span class="text-2xl font-extrabold pr-2"> 80%</span>
+                    </span>
+                    <span class="text-sm">
+                        of spread and commissions payout per active client
+                    </span>
+                </p>
+            </section>
+            <section
+                class="container flex flex-col justify-center items-center mx-auto pt-8 space-y-6"
+            >
+                <p
+                    class="text-[#1155cc] font-black text-center lg:text-3xl text-xl"
+                >
+                    Marketing Agents | Account Managers
+                </p>
+                <p class="text-left text-base">
+                    <span class="font-extrabold text-[#1155cc]"
+                        >Maximize Your Capital Gains</span
+                    >
+                    - Experience satisfaction, top-notch services and solutions
+                    to generate great business value with Premium Digital
+                    Affiliate.
+                </p>
+            </section>
+
+            <section
+                class="container w-full flex flex-row items-center mx-auto p-2 space-x-4 overflow-x-auto"
+                id="prople"
+                style="
+                    /* Hide default scrollbar */
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+                    -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+                    scrollbar-width: none; /* Hide scrollbar on Firefox */
+                "
+            >
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/caroline.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: carolinepreussde
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Caroline Preuß
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                5.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">956 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/harriet.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: selling_secret
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Harriet Rieper
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                5.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">714 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/jamie.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: jamieseaofficial
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Jamie Contrastano
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                5.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">1367 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/unforgettwble.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-lg font-bold leading-tight text-center"
+                        >
+                            Profile: unforgettwblestories
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Faceless Marketer
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img
+                                src="./assets/star-filled.png"
+                                alt=""
+                                class="w-5"
+                            />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                4.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">724 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/kayla.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: thatmamainpajamas
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Kayla Elderkin
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                4.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">1523 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/sfc.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: sistemafaceless
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Laura | Marketing Digital
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img
+                                src="./assets/star-half.png"
+                                alt=""
+                                class="w-5"
+                            />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                4.5
+                            </span>
+                            <span class="text-xs">Superb</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">831 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/gabi.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: Gabimarketsbr
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Gabi Markets
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                5.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">1446 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/lukas.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: affiliate.raketen
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Lukas Schmalz
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                5.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">823 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/laura.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: laura.hersche_
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Laura Hersche
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img
+                                src="./assets/star-filled.png"
+                                alt=""
+                                class="w-5"
+                            />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                4.0
+                            </span>
+                            <span class="text-xs">Excellent</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">547 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="block rounded-lg bg-white w-[85%] shadow-lg flex-shrink-0"
+                >
+                    <div
+                        class="relative bg-cover bg-no-repeat w-full h-72"
+                        data-twe-ripple-init
+                        data-twe-ripple-color="light"
+                    >
+                        <img
+                            class="rounded-2xl w-full h-full object-cover mx-auto"
+                            src="./assets/marci.png"
+                            alt=""
+                        />
+                        <a href="#!">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
+                            ></div>
+                        </a>
+                    </div>
+                    <div class="p-6 text-surface w-full overflow-hidden">
+                        <h5
+                            class="mb-2 text-xl font-bold leading-tight text-center"
+                        >
+                            Profile: <br />social.marci
+                        </h5>
+                        <p class="mb-4 text-base text-blue-600 text-center">
+                            Marcel Schreiner
+                        </p>
+                        <p
+                            class="mb-4 text-base text-center flex flex-row justify-center items-center space-x-1"
+                        >
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                            <img src="./assets/star.png" alt="" class="w-5" />
+                        </p>
+                        <p
+                            class="flex justify-center items-center space-x-2 text-center"
+                        >
+                            <span class="bg-blue-700 text-white p-1 rounded-md">
+                                5.0
+                            </span>
+                            <span class="text-xs">Exceptional</span>
+                            <span class="text-xs"> . </span>
+                            <span class="text-xs">631 Reviews</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center space-y-4 py-10"
+            >
+                <p class="font-black text-xl py-6 text-center">
+                    Happy customers are the best customers
+                </p>
+                <img
+                    src="./assets/happy-customers.png"
+                    alt=""
+                    class="w-10/12 mx-auto lg:w-8/12"
+                />
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center space-y-3"
+            >
+                <p class="text-center" id="what-people-think">
+                    At Premium digital affiliate, we believe that happy
+                    customers are the heart of our success. Join the ranks of
+                    our delighted customers and experience the difference that
+                    strategic digital marketing investment can make for you.
+                    Your journey to digital marketing investment success starts
+                    here. Explore our site, discover our services, and take the
+                    first step towards unlocking your full potential.
+                </p>
+            </section>
+            <section
+                class="container flex flex-col justify-center items-center mx-auto py-6 space-y-2"
+            >
+                <p class="font-black text-center lg:text-3xl text-2xl py-6">
+                    What people
+                    <span class="text-[#1155cc]">think about us</span>
+                </p>
+            </section>
+
+            <!-- Component: Testimonial carousel -->
+            <section
+                class="w-full overflow-x-auto"
+                style="
+                    /* Hide default scrollbar */
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+                    -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+                    scrollbar-width: none; /* Hide scrollbar on Firefox */
+                "
+            >
+                <div class="relative w-full glide-08">
+                    <!-- Slides -->
+                    <div data-glide-el="track">
+                        <ul
+                            class="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0 pb-12"
+                            id="ul-reviews"
+                        ></ul>
+                    </div>
+                </div>
+                <p id="powerful-support"></p>
+            </section>
+
+            <section
+                class="container flex flex-col space-y-2 py-4 lg:flex-row-reverse lg:space-x-4"
+            >
+                <section class="flex flex-col space-y-5 py-6 justify-center">
+                    <p
+                        class="rounded-xl flex flex-row font-bold justify-center items-center w-fit space-x-2 bg-[#ffdc64] px-2 py-1"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-4 h-4"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+                            />
+                        </svg>
+
+                        <span>Powerful Support</span>
+                    </p>
+                    <p class="font-bold text-xl">
+                        Affiliate Software Platform with 24/7 service
+                    </p>
+                    <p>
+                        Our reliable customer service team is available to help
+                        you set up essential features or answer any of your
+                        questions regarding our affiliate program. Contact us
+                        24/7 via email, whatsapp, or customer portal.
+                    </p>
+                </section>
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center space-y-5 py-8"
+            >
+                <p class="font-bold text-center text-xl">
+                    Recognized by the best
+                </p>
+                <p class="text-left">
+                    Premium Digital Affiliate proudly stands as a distinguished
+                    industry leader, recognised by experts and prestigious
+                    institutions alike for its strong network, comprehensive
+                    tools, and high-quality relationships. Its reputation
+                    originates from its ability to effortlessly link advertisers
+                    and publishers, as well as provide excellent support and new
+                    solutions to help affiliates and investors earn globally
+                    without requiring any technical knowledge.
+                </p>
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-20 justify-center"
+                >
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/ebay.png"
+                            alt="Image 1"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/clickbank.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/shopify.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/walmart.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/amazon.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/rakuten.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/commission-junction.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/etsy.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/alibaba.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/sharesale.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center space-y-3 py-8"
+            >
+                <p class="font-bold text-lg">Become an Affiliate</p>
+                <p class="font-bold">Contact Us</p>
+                <a
+                    class="rounded-2xl flex flex-row justify-center items-center px-4 py-1 space-x-2 text-white bg-[#00a0dc] text-nowrap"
+                    href="https://t.me/#"
+                >
+                    <span>Telegram</span>
+                    <span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 -rotate-45"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                            />
+                        </svg>
+                    </span>
+                </a>
+                <a
+                    class="rounded-2xl flex flex-row justify-center items-center px-4 py-1 space-x-2 text-white bg-[#4dae51] text-nowrap"
+                    href="https://wa.me/#"
+                >
+                    <span>WhatsApp</span>
+                    <span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 256 258"
+                        >
+                            <defs>
+                                <linearGradient
+                                    id="logosWhatsappIcon0"
+                                    x1="50%"
+                                    x2="50%"
+                                    y1="100%"
+                                    y2="0%"
+                                >
+                                    <stop offset="0%" stop-color="white" />
+                                    <stop offset="100%" stop-color="white" />
+                                </linearGradient>
+                                <linearGradient
+                                    id="logosWhatsappIcon1"
+                                    x1="50%"
+                                    x2="50%"
+                                    y1="100%"
+                                    y2="0%"
+                                >
+                                    <stop offset="0%" stop-color="#1faf38" />
+                                    <stop offset="100%" stop-color="#1faf38" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                fill="url(#logosWhatsappIcon0)"
+                                d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a122.994 122.994 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"
+                            />
+                            <path
+                                fill="url(#logosWhatsappIcon1)"
+                                d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416m40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513z"
+                            />
+                            <path
+                                fill="#1faf38"
+                                d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561c0 15.67 11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716c-3.186-1.593-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
+                            />
+                        </svg>
+                    </span>
+                </a>
+                <a
+                    href="mailto:info@premiumdigitalaffiliate.com"
+                    class="text-left text-xs text-darkbg"
+                >
+                    info@premiumdigitalaffiliate.com
+                </a>
+            </section>
+
+            <footer
+                class="container flex flex-col justify-start items-start space-y-3 py-6"
+            >
+                <p class="taxt-left font-bold text-3xl self-start pt-8">
+                    Premium Digital
+                </p>
+                <a
+                    href="mailto:info@premiumdigitalaffiliate.com"
+                    class="font-bold text-left text-darkbg"
+                >
+                    info@premiumdigitalaffiliate.com
+                </a>
+                <!-- <p class="font-bold text-left">
+                    info@premiumdigitalaffiliate.com
+                </p> -->
+                <p class="text-left text-gray-300">
+                    We believe that advertising is a great driver for a lot of
+                    good things on the internet. The wealth of free content for
+                    everyone to enjoy exists mostly because of advertising.
+                    However, the further we explore technical and novel
+                    possibilities of online advertising, the further we seem to
+                    wander from a balanced model, where consumers, advertisers
+                    and content creators all benefit.We have made it our mission
+                    to try and help bring back some balance to the ecosystem. We
+                    believe that putting the human touch back into advertising
+                    will be a great step towards a better ad experience so that
+                    people can enjoy advertising again.
+                    <br /><br />
+                    Privacy Policy <br /><br />
+                    © 2000-2024. All rights reserved.
+                </p>
+            </footer>
+        </main>
+
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#emailResetInput"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-emailResetInput-btn"
+        ></button>
+
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-3 z-[1055] hidden justify-center items-center h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="emailResetInput"
+            tabindex="-1"
+            aria-labelledby="emailResetInputLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative w-11/12 mx-auto flex justify-center items-center translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg2 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto w-10/12 space-y-2"
+                        data-te-modal-body-ref
+                    >
+                        <form
+                            class="space-y-4 flex flex-col"
+                            id="send-reset-password"
+                        >
+                            <div class="flex flex-col">
+                                <label
+                                    for="#email-address"
+                                    class="text-black text-sm font-medium mb-2"
+                                    >Enter email address</label
+                                >
+                                <input
+                                    type="text"
+                                    id="user-email-address"
+                                    class="form-input rounded-md py-2 px-4 outline outline-1 outline-gray-300 bg-white text-gray-900"
+                                    required
+                                />
+                            </div>
+                            <small
+                                class="text-red-600 hidden text-xs"
+                                id="sm-err"
+                            ></small>
+
+                            <!-- Add more fields as needed -->
+
+                            <button
+                                type="submit"
+                                id="sub-btn"
+                                class="bg-darkbg2 text-white py-2 px-4 rounded-md focus:outline-none hover:opacity-80"
+                            >
+                                Send Email
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- login error btn -->
+        <button
+            type="button"
+            class="hidden"
+            data-te-toggle="modal"
+            data-te-target="#loginerror"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="login-error-btn"
+        ></button>
+
+        <!-- login error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="loginerror"
+            tabindex="-1"
+            aria-labelledby="loginerrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col py-2 px-4 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="">
+                            <p
+                                class="font-black text-center uppercase"
+                                id="login-error-msg"
+                            ></p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <div
+            id="alert-msg"
+            class="fixed bottom-4 text-xs flex justify-center space-x-2 items-center left-4 w-8/12 bg-white text-wrap text-gray-600 rounded-lg p-4 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+            role="alert"
+        ></div>
+
+        <script
+            type="text/javascript"
+            src="./node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+        ></script>
+        <!-- type="module" -->
+        <script
+            type="text/javascript"
+            src="./node_modules/@preline/carousel/index.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="./node_modules/preline/dist/preline.js"
+        ></script>
+        <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+        <script type="module" src="./src/reviews.js"></script>
+        <script type="module" src="./src/glide-car.js"></script>
+
+        <script type="module" src="./src/tailwind-elements.js"></script>
+        <script type="module" src="./src/custom-styles.js"></script>
+        <script type="module" src="./src/offerings.js"></script>
+        <script type="module" src="./src/app/login.js"></script>
+        <script type="module" src="./src/app/nav.js"></script>
+        <script>
+            document
+                .getElementById("togglePassword")
+                .addEventListener("click", function (e) {
+                    const password = document.getElementById("password");
+                    const type =
+                        password.getAttribute("type") === "password"
+                            ? "text"
+                            : "password";
+                    password.setAttribute("type", type);
+                    // Toggle the eye/eye-slash icon
+                    this.innerHTML =
+                        type === "text"
+                            ? `
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+         </svg>
+                              `
+                            : `
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+           <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+         </svg>
+
+                              `;
+                });
+        </script>
+        <script>
+            document
+                .querySelector("#what-people-think-click")
+                .addEventListener("click", () => {
+                    document.getElementById("sidebar").classList.toggle("show");
+                });
+        </script>
+        <script type="module" src="./src/messages.js"></script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

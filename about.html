@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="./node_modules/apexcharts/dist/apexcharts.css"
+        />
+
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+    </head>
+
+    <body class="bg-white font-Montserrat">
+        <!-- LOADER -->
+        <div
+            class="fixed hidden top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+            ></div>
+        </div>
+
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-white text-gray-950 px-4 shadow-md sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-gray-950 hover:text-gray-700"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        class="h-8 w-8 stroke-[.11rem]"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8 stroke-[.11rem]"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./assets/index-logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+                <p class="text-gray-950 font-extrabold">
+                    Premium Digital Affiliate
+                </p>
+            </div>
+            <!-- <p class="text-white text-center font-bold my-auto">
+            <span class="uppercase text-amber-500" id="my-user-username">
+            </span>
+            <br />
+            <span class="uppercase" id="my-user-aff-bal"></span>
+         </p> -->
+            <ul class="relative flex items-center space-x-2">
+                <!--  
+            <li class="relative" data-te-dropdown-ref>
+               <a
+                  class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-te-dropdown-toggle-ref
+                  aria-expanded="false"
+               >
+                  <img
+                     src="./user.png"
+                     class="w-8 rounded-full"
+                     alt="Avatar"
+                     loading="lazy"
+                  />
+               </a>
+               <ul
+                  class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-zinc-700 [&[data-te-dropdown-show]]:block"
+                  aria-labelledby="dropdownMenuButton2"
+                  data-te-dropdown-menu-ref
+               >
+                  <li>
+                     <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                        href="profile.html"
+                        data-te-dropdown-item-ref
+                        >My profile</a
+                     >
+                  </li>
+                  <li>
+                     <a
+                        class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                        href="#"
+                        data-te-dropdown-item-ref
+                        >Gift Box</a
+                     >
+                  </li>
+                  <li>
+                     <a
+                        class="cursor-pointer sign-out-acc block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                        data-te-dropdown-item-ref
+                        >Logout</a
+                     >
+                  </li>
+               </ul>
+            </li> -->
+            </ul>
+        </nav>
+
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-white text-darkbg pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="index.html"
+                                >
+                                    <img
+                                        src="./assets/home-dark.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="about.html"
+                                >
+                                    <img src="./assets/about.png" class="w-5" />
+                                    <span class="select-none ml-2">About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="plans.html"
+                                >
+                                    <img
+                                        src="./assets/check-list.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Plans</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="faqs.html"
+                                >
+                                    <img
+                                        src="./assets/questions.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">FAQs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-darkbg hover:bg-gray-200"
+                                    href="index.html#what-people-think"
+                                >
+                                    <img
+                                        src="./assets/client.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Clients</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                            <li>
+                                <img
+                                    src="./assets/nav-team.gif"
+                                    alt=""
+                                    class="w-9/12"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+        <main
+            class="mt-24 lg:mb-4 py-4 flex flex-col justify-center items-center text-gray-950 mx-auto w-full space-y-4 lg:w-3/4"
+        >
+            <section
+                class="container flex flex-row justify-center items-center"
+            >
+                <p class="text-gray-900 font-bold text-lg text-center">About</p>
+            </section>
+            <section
+                class="container flex flex-col justify-center items-center"
+            >
+                <p class="text-darkbg font-bold text-2xl text-center">
+                    Dedicated to delivering excellent outcomes
+                </p>
+            </section>
+            <section
+                class="container flex flex-col justify-start items-start space-y-3"
+            >
+                <img
+                    src="./assets/beginning.jpg"
+                    alt=""
+                    class="w-9/12 mx-auto py-4"
+                />
+                <p class="text-gray-900 text-left font-bold">The Beginning</p>
+                <p class="text-gray-900 text-left">
+                    Premium Digital Affiliate emerged from a collective passion
+                    for affiliate and digital marketing. Born in 2015 out of the
+                    desire to create a platform where customers and investors
+                    could find tangible results and excellence, PDA began its
+                    journey with a vision to revolutionize the digital marketing
+                    landscape.
+                </p>
+            </section>
+            <section
+                class="container flex flex-col justify-start items-start space-y-3 pt-12"
+            >
+                <img
+                    src="./assets/mission.jpg"
+                    alt=""
+                    class="w-9/12 mx-auto py-4"
+                />
+                <p class="text-gray-900 text-left font-bold">Our Mission</p>
+                <p class="text-gray-900 text-left">
+                    At Premium Digital Affiliate, our mission is clear: to
+                    empower customers and investors with the tools, knowledge,
+                    and resources they need to succeed in the fast-paced world
+                    of affiliate and digital marketing. We strive to provide
+                    unparalleled value through cutting-edge strategies,
+                    innovative solutions, and a relentless commitment to
+                    excellence.
+                </p>
+            </section>
+            <section
+                class="container flex flex-col justify-start items-start space-y-3 pt-12"
+            >
+                <img
+                    src="./assets/global.jpg"
+                    alt=""
+                    class="w-9/12 mx-auto py-4"
+                />
+                <p class="text-gray-900 text-left font-bold">We Are Global</p>
+                <p class="text-gray-900 text-left">
+                    With a global reach, Premium Digital Affiliate transcends
+                    geographical boundaries to serve a diverse community of
+                    customers and investors worldwide. From bustling
+                    metropolises to remote corners of the globe, our platform
+                    connects people with opportunities, fostering growth and
+                    success on a global scale.
+                </p>
+            </section>
+            <section
+                class="container flex flex-col justify-start items-start space-y-3 pt-6"
+            >
+                <p
+                    class="text-2xl font-bold text-darkbg text-center mx-auto py-4"
+                >
+                    Why Premium Digital Affiliate?
+                </p>
+                <p class="text-gray-900 text-left">
+                    When it comes to selecting a partner in the competitive
+                    landscape of affiliate and digital marketing, Premium
+                    Digital Affiliate emerges as a clear choice. Boasting a team
+                    of seasoned experts with years of experience, PDA offers
+                    unparalleled expertise and innovative strategies that drive
+                    real results for clients worldwide.
+                </p>
+                <p class="text-gray-900 text-left">
+                    At Premium Digital Affiliate, our approach is firmly rooted
+                    in delivering measurable outcomes. We prioritize client
+                    satisfaction, working closely with each individual to tailor
+                    solutions that align with their unique goals and objectives.
+                    Our commitment to continuous improvement ensures that we
+                    stay ahead of the curve, constantly evolving our strategies
+                    to leverage the latest trends and technologies.
+                </p>
+                <p class="text-gray-900 text-left">
+                    Transparency is at the core of our communication philosophy.
+                    From the initial consultation to ongoing support, we
+                    maintain open and clear channels, keeping clients informed
+                    and involved every step of the way. With a proven track
+                    record of success and satisfied clients globally, Premium
+                    Digital Affiliate has earned a reputation as a trusted
+                    partner in the digital marketing arena.
+                </p>
+                <a
+                    href="plans.html"
+                    class="text-darkbg4 underline text-left self-start text-xs"
+                    >Learn More</a
+                >
+            </section>
+            <section
+                class="container flex flex-col justify-start items-start space-y-3 pt-12"
+            >
+                <p
+                    class="text-2xl font-bold text-darkbg text-center mx-auto py-2"
+                >
+                    Our Core Values
+                </p>
+                <p
+                    class="font-bold text-gray-900 text-center mx-auto text-base"
+                >
+                    These four core values differentiate us from our competitors
+                </p>
+            </section>
+            <section
+                class="container grid grid-cols-2 justify-start items-start gap-6"
+            >
+                <section
+                    class="flex flex-col justify-start items-start space-y-4 h-full min-h-[300px]"
+                >
+                    <!-- src="./assets/target01.png" -->
+                    <img
+                        src="./assets/target.png"
+                        alt=""
+                        class="w-24 mx-auto"
+                    />
+                    <p class="text-center font-black mx-auto">
+                        Target Oriented
+                    </p>
+                    <p class="text-left text-xs">
+                        Being target-oriented is more than setting objectives —
+                        it's about navigating with purpose. We understand that
+                        digital marketing is driven by goals, and we're here to
+                        help you achieve them.
+                    </p>
+                </section>
+                <section
+                    class="flex flex-col justify-start items-start space-y-4 h-full min-h-[300px]"
+                >
+                    <img
+                        src="./assets/teamwork.png"
+                        alt=""
+                        class="w-24 mx-auto"
+                    />
+                    <p class="text-center font-black mx-auto">Teamwork</p>
+                    <p class="text-left text-xs">
+                        At Premium Digital Affiliate, teamwork is the
+                        cornerstone of our success. We recognize that our
+                        strength lies in our unity, and that's why collaboration
+                        is at the heart of our culture.
+                    </p>
+                </section>
+                <section
+                    class="flex flex-col justify-start items-start space-y-4 h-full min-h-[300px]"
+                >
+                    <img
+                        src="./assets/growth.png"
+                        alt=""
+                        class="w-24 mx-auto"
+                    />
+                    <p class="text-center font-black mx-auto">Growth</p>
+                    <p class="text-left text-xs">
+                        At Premium Digital Affiliate, growth isn't just a goal;
+                        it's a fundamental value that drives everything we do –
+                        it's about nurturing your skills, expanding your
+                        knowledge, and empowering you to reach new heights in
+                        the competitive world of digital marketing.
+                    </p>
+                </section>
+                <section
+                    class="flex flex-col justify-start items-start space-y-4 h-full min-h-[300px]"
+                >
+                    <!-- src="./assets/winning.png" -->
+                    <img
+                        src="./assets/winning.png"
+                        alt=""
+                        class="w-24 mx-auto"
+                    />
+                    <p class="text-center font-black mx-auto">Winning</p>
+                    <p class="text-left text-xs">
+                        At Premium Digital Affiliate, teamwork is the
+                        cornerstone of our success. We recognize that our
+                        strength lies in our unity, and that's why collaboration
+                        is at the heart of our culture.
+                    </p>
+                </section>
+            </section>
+
+            <!-- <section class="flex py-2">
+                <a
+                    href="index.html#powerful-support"
+                    class="py-4 text-darkbg4 font-medium"
+                    >Powerful Support</a
+                >
+            </section> -->
+            <section
+                class="container flex flex-col space-y-2 py-4 lg:flex-row-reverse lg:space-x-4"
+            >
+                <section class="flex flex-col space-y-5 py-6 justify-center">
+                    <p
+                        class="rounded-xl flex flex-row font-bold justify-center items-center w-fit space-x-2 bg-[#ffdc64] px-2 py-1"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-4 h-4"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+                            />
+                        </svg>
+
+                        <span>Powerful Support</span>
+                    </p>
+                    <p class="font-bold text-xl">
+                        Affiliate Software Platform with 24/7 service
+                    </p>
+                    <p>
+                        Our reliable customer service team is available to help
+                        you set up essential features or answer any of your
+                        questions regarding our affiliate program. Contact us
+                        24/7 via email, whatsapp, or customer portal.
+                    </p>
+                </section>
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center space-y-5 py-8"
+            >
+                <p class="font-bold text-center text-xl">
+                    Recognized by the best
+                </p>
+                <p class="text-left">
+                    Premium Digital Affiliate proudly stands as a distinguished
+                    industry leader, recognised by experts and prestigious
+                    institutions alike for its strong network, comprehensive
+                    tools, and high-quality relationships. Its reputation
+                    originates from its ability to effortlessly link advertisers
+                    and publishers, as well as provide excellent support and new
+                    solutions to help affiliates and investors earn globally
+                    without requiring any technical knowledge.
+                </p>
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-20 justify-center"
+                >
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/ebay.png"
+                            alt="Image 1"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/clickbank.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/shopify.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/walmart.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/amazon.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/rakuten.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/commission-junction.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/etsy.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/alibaba.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <div class="p-2">
+                        <img
+                            src="assets/recommended/sharesale.png"
+                            alt="Image 2"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="container flex flex-col justify-center items-center space-y-3 py-8"
+            >
+                <p class="font-bold text-lg">Become an Affiliate</p>
+                <p class="font-bold">Contact Us</p>
+                <a
+                    class="rounded-2xl flex flex-row justify-center items-center px-4 py-1 space-x-2 text-white bg-[#00a0dc] text-nowrap"
+                    href="https://t.me/#"
+                >
+                    <span>Telegram</span>
+                    <span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 -rotate-45"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                            />
+                        </svg>
+                    </span>
+                </a>
+                <a
+                    class="rounded-2xl flex flex-row justify-center items-center px-4 py-1 space-x-2 text-white bg-[#4dae51] text-nowrap"
+                    href="https://wa.me/#"
+                >
+                    <span>WhatsApp</span>
+                    <span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 256 258"
+                        >
+                            <defs>
+                                <linearGradient
+                                    id="logosWhatsappIcon0"
+                                    x1="50%"
+                                    x2="50%"
+                                    y1="100%"
+                                    y2="0%"
+                                >
+                                    <stop offset="0%" stop-color="white" />
+                                    <stop offset="100%" stop-color="white" />
+                                </linearGradient>
+                                <linearGradient
+                                    id="logosWhatsappIcon1"
+                                    x1="50%"
+                                    x2="50%"
+                                    y1="100%"
+                                    y2="0%"
+                                >
+                                    <stop offset="0%" stop-color="#1faf38" />
+                                    <stop offset="100%" stop-color="#1faf38" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                fill="url(#logosWhatsappIcon0)"
+                                d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a122.994 122.994 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"
+                            />
+                            <path
+                                fill="url(#logosWhatsappIcon1)"
+                                d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416m40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513z"
+                            />
+                            <path
+                                fill="#1faf38"
+                                d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561c0 15.67 11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716c-3.186-1.593-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
+                            />
+                        </svg>
+                    </span>
+                </a>
+                <a
+                    href="mailto:info@premiumdigitalaffiliate.com"
+                    class="text-left text-xs text-darkbg"
+                >
+                    info@premiumdigitalaffiliate.com
+                </a>
+            </section>
+
+            <footer
+                class="container flex flex-col justify-start items-start space-y-3 py-6"
+            >
+                <p class="taxt-left font-bold text-3xl self-start pt-8">
+                    Premium Digital
+                </p>
+                <a
+                    href="mailto:info@premiumdigitalaffiliate.com"
+                    class="font-bold text-left text-darkbg"
+                >
+                    info@premiumdigitalaffiliate.com
+                </a>
+                <!-- <p class="font-bold text-left">
+                info@premiumdigitalaffiliate.com
+            </p> -->
+                <p class="text-left text-gray-300">
+                    We believe that advertising is a great driver for a lot of
+                    good things on the internet. The wealth of free content for
+                    everyone to enjoy exists mostly because of advertising.
+                    However, the further we explore technical and novel
+                    possibilities of online advertising, the further we seem to
+                    wander from a balanced model, where consumers, advertisers
+                    and content creators all benefit.We have made it our mission
+                    to try and help bring back some balance to the ecosystem. We
+                    believe that putting the human touch back into advertising
+                    will be a great step towards a better ad experience so that
+                    people can enjoy advertising again.
+                    <br /><br />
+                    Privacy Policy <br /><br />
+                    © 2000-2024. All rights reserved.
+                </p>
+            </footer>
+        </main>
+
+        <div
+            id="alert-msg"
+            class="fixed bottom-4 text-xs flex justify-center space-x-2 items-center left-4 w-8/12 bg-white text-wrap text-gray-600 rounded-lg p-4 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+            role="alert"
+        ></div>
+
+        <script
+            type="text/javascript"
+            src="./node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+        ></script>
+        <!-- type="module" -->
+        <script
+            type="text/javascript"
+            src="./node_modules/@preline/carousel/index.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="./node_modules/preline/dist/preline.js"
+        ></script>
+        <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+
+        <script type="module" src="./src/tailwind-elements.js"></script>
+        <script type="module" src="./src/custom-styles.js"></script>
+        <script type="module" src="./src/app/nav.js"></script>
+        <script type="module" src="./src/messages.js"></script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

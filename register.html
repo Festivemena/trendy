@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+
+    </head>
+
+    <body
+        class="bg-[#004387] font-Montserrat"
+    >
+        <div
+            class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 bg-gradient-to-br from-darkbg2 to-darkbg3"
+            ></div>
+        </div>
+        <!-- Navbar start -->
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-darkbg1 text-gray-100 px-4 sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-white hover:text-gray-200"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+            </div>
+            <p class="text-white text-center font-bold my-auto">
+                <span class="uppercase text-amber-500" id="my-user-username">
+                </span>
+                <br />
+                <span class="uppercase" id="my-user-aff-bal"></span>
+            </p>
+            <ul class="relative flex items-center space-x-2"></ul>
+        </nav>
+        <!-- Navbar end -->
+
+        <!-- Sidebar start-->
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-darkbg1 text-gray-100 pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navigation group end-->
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+        <!-- Sidebar end -->
+
+        <main
+            class="mt-40 lg:mb-4 flex flex-col justify-center items-center text-gray-100 mx-auto w-11/12 space-y-2 lg:w-3/4"
+        >
+            <!-- <div class="mt-16 w-full mx-auto p-6 bg-darkbg rounded-md shadow-md"> -->
+            <!-- Logo at the top -->
+            <div class="mb-6 text-center">
+                <img src="./logo.png" alt="Logo" class="w-16 h-16 mx-auto" />
+                <p class="font-bold uppercase mt-2">premiumdigitalaffiliate</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form
+                class="px-4 py-6 w-full rounded-lg border border-white shadow-lg bg-[#00376a] md:w-2/3 lg:w-1/2 mx-auto"
+                id="reg-form"
+            >
+                <div class="mb-4">
+                    <p class="text-lg font-bold text-center px-4 pt-8">
+                        Welcome to Premium Digital Affiliate
+                    </p>
+                    <p class="text-center px-4 pt-2">Sign up to continue</p>
+                </div>
+
+                <!-- Name -->
+                <div class="mb-4">
+                    <label
+                        for="name"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Name:</label
+                    >
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="w-full px-4 text-gray-800 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        placeholder="Full Name"
+                    />
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label
+                        for="email"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Email:</label
+                    >
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        class="w-full px-4 text-gray-800 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        placeholder="johndoe@gmail.com"
+                    />
+                </div>
+
+                <!-- Phone Number -->
+                <div class="mb-4">
+                    <label
+                        for="phone"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Phone Number:</label
+                    >
+                    <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        class="w-full px-4 text-gray-800 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        placeholder="+140987643"
+                    />
+                </div>
+
+                <!-- Country -->
+                <div class="mb-4">
+                    <label
+                        for="country"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Country:</label
+                    >
+                    <select
+                        id="country"
+                        name="country"
+                        class="w-full border rounded-md p-2 text-gray-800 focus:outline-none focus:border-blue-500"
+                        required="true"
+                    ></select>
+                </div>
+
+                <!-- Currency (Drop-down) -->
+                <div class="mb-4">
+                    <label
+                        for="currency"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Currency:</label
+                    >
+                    <select
+                        id="currency"
+                        name="currency"
+                        class="w-full px-4 py-2 border rounded-md text-gray-800 focus:outline-none focus:border-blue-500"
+                    >
+                        <!-- Add your currency options here -->
+                        <option>Select Currency</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="gbp">GBP</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-4 relative">
+                    <label
+                        for="password"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Password:</label
+                    >
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="w-full px-4 text-gray-800 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                    />
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="absolute top-3 right-0 pr-3 flex items-center h-full"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="rgba(128, 128, 128, 0.8)"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-5 h-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mb-4 relative">
+                    <label
+                        for="confirm-password"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Confirm Password:</label
+                    >
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm-password"
+                        class="w-full px-4 text-gray-800 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                    />
+                    <button
+                        type="button"
+                        id="toggle-confirm-password"
+                        class="absolute top-3 right-0 pr-3 flex items-center h-full"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="rgba(128, 128, 128, 0.8)"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-5 h-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mb-4">
+                    <label
+                        for="referral"
+                        class="block text-white text-sm font-bold mb-2"
+                        >Referral:</label
+                    >
+                    <input
+                        type="text"
+                        id="referral"
+                        name="referral"
+                        class="w-full px-4 text-gray-900 bg-gray-300 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        disabled
+                    />
+                </div>
+
+                <p
+                    id="reg-error"
+                    class="text-red-300 leading-5 p-4 text-center hidden"
+                ></p>
+
+                <button
+                    type="submit"
+                    class="w-full bg-darkbg3 text-white font-bold py-2 px-4 rounded-md hover:bg-opacity-80 focus:outline-none"
+                >
+                    Register
+                </button>
+
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-white">
+                        Already a member? Click<a
+                            href="login.html"
+                            class="text-red-500"
+                        >
+                            here </a
+                        >to login.
+                    </p>
+                </div>
+            </form>
+
+            <p class="py-4 bg-transparent"></p>
+
+            <!-- Forgot Password & Login Links -->
+
+            <!-- </div> -->
+        </main>
+        <script type="module" src="./src/app/nav.js"></script>
+
+        <script type="module" src="./src/page.js"></script>
+
+        <script type="module" src="./src/app/register.js"></script>
+        <script>
+            document
+                .getElementById("togglePassword")
+                .addEventListener("click", function (e) {
+                    const password = document.getElementById("password");
+                    const type =
+                        password.getAttribute("type") === "password"
+                            ? "text"
+                            : "password";
+                    password.setAttribute("type", type);
+                    // Toggle the eye/eye-slash icon
+                    this.innerHTML =
+                        type === "text"
+                            ? `
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(128, 128, 128, 0.8)" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+      </svg>
+                           `
+                            : `
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(128, 128, 128, 0.8)" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      </svg>
+
+                           `;
+                });
+        </script>
+        <script>
+            document
+                .getElementById("toggle-confirm-password")
+                .addEventListener("click", function (e) {
+                    const password =
+                        document.getElementById("confirm-password");
+                    const type =
+                        password.getAttribute("type") === "password"
+                            ? "text"
+                            : "password";
+                    password.setAttribute("type", type);
+                    // Toggle the eye/eye-slash icon
+                    this.innerHTML =
+                        type === "text"
+                            ? `
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(128, 128, 128, 0.8)" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+      </svg>
+                           `
+                            : `
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(128, 128, 128, 0.8)" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      </svg>
+
+                           `;
+                });
+        </script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

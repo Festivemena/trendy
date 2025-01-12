@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Account Registration</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="./node_modules/apexcharts/dist/apexcharts.css"
+        />
+
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+    </head>
+    <body class="bg-darkbg font-Montserrat">
+        <!-- LOADER -->
+        <div
+            class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 bg-gradient-to-br from-darkbg2 to-darkbg3"
+            ></div>
+        </div>
+        <!-- LOADER -->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="giftBoxSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full space-y-3 pb-3"
+                    >
+                        <section
+                            class="flex flex-col justify-center items-center space-y-4 bg-darkbg1 w-full py-4"
+                        >
+                            <img
+                                src="./assets/gift-box.png"
+                                alt=""
+                                class="w-36 mx-auto"
+                            />
+                            <p class="text-2xl text-white font-black">
+                                Gift Box
+                            </p>
+                        </section>
+                        <hr class="text-gray-600" />
+                        <p class="text-center w-10/12 pb-2">
+                            One-time PROMO for new members only. <br />
+                            Enjoy a 20% bonus when you deposit 1000 and above.
+                            Offer is available for a limited time.
+                        </p>
+                        <button
+                            data-request="advertFee"
+                            class="gift-box-request rounded-lg py-2 px-4 bg-darkbg1 text-white"
+                        >
+                            Activate GiftBox
+                        </button>
+                        <div class="mt-3"></div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-darkbg1 text-gray-100 px-4 sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-white hover:text-gray-200"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+            </div>
+            <p class="text-white text-center font-bold my-auto">
+                <span class="uppercase text-amber-500" id="my-user-username">
+                </span>
+                <br />
+                <span class="uppercase" id="my-user-aff-bal"></span>
+            </p>
+            <ul class="relative flex items-center space-x-2">
+                <li class="relative" data-te-dropdown-ref>
+                    <a
+                        class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                    >
+                        <img
+                            src="./user.png"
+                            class="w-8 rounded-full"
+                            alt="Avatar"
+                            loading="lazy"
+                        />
+                    </a>
+                    <ul
+                        class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-zinc-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="dropdownMenuButton2"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                href="profile.html"
+                                data-te-dropdown-item-ref
+                                >My profile</a
+                            >
+                        </li>
+                        <!-- <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 "
+                                href="#"
+                                data-te-dropdown-item-ref
+                                >Gift Box</a
+                            >
+                        </li> -->
+                        <li>
+                            <!-- type="button" -->
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                data-te-toggle="modal"
+                                data-te-target="#giftBoxSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Gift Box
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="cursor-pointer sign-out-acc block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                data-te-dropdown-item-ref
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-darkbg1 text-gray-100 pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="dashboard.html"
+                                >
+                                    <img src="./assets/home.png" class="w-5" />
+                                    <span class="select-none ml-2"
+                                        >Dashboard</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="portfolio.html"
+                                >
+                                    <img
+                                        src="./assets/portfolio.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Portfolio</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="deposit.html"
+                                >
+                                    <img
+                                        src="./assets/download.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Deposit</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="funds.html"
+                                >
+                                    <img src="./assets/funds.png" class="w-5" />
+                                    <span class="select-none ml-2">Funds</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="account-status.html"
+                                >
+                                    <img
+                                        src="./assets/account-status.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Account Status</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="marketing-landscape.html"
+                                >
+                                    <img
+                                        src="./assets/marketing-landscape.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Marketing Landscape</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="withdrawal.html"
+                                >
+                                    <img
+                                        src="./assets/upload.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Withdrawal</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="transactions.html"
+                                >
+                                    <img
+                                        src="./assets/transactions.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Transaction</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="settings.html"
+                                >
+                                    <img
+                                        src="./assets/settings.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Settings</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="referrals.html"
+                                >
+                                    <img
+                                        src="./assets/referrals.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Referrals</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="cursor-pointer sign-out-acc flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                >
+                                    <img
+                                        src="./assets/logout.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Logout</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                            <li>
+                                <img
+                                    src="./assets/nav-team.gif"
+                                    alt=""
+                                    class="w-9/12"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navigation group end-->
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+        <main
+            class="mt-16 lg:mb-4 flex flex-col p-3 text-gray-100 mx-auto lg:ml-3 w-full space-y-2"
+        >
+            <form
+                id="no-token"
+                class="flex flex-col justify-center items-start rounded-lg px-6 py-4 space-y-4 bg-gray-100 text-gray-900"
+            >
+                <p class="text-left">Account Registration</p>
+                <p class="text-left">
+                    A verification email has been sent to your email address.
+                    <br />
+                    If not received, check your spam folder or click the button
+                    below to resend email.
+                </p>
+                <button
+                    type="submit"
+                    class="px-4 uppercase py-2 bg-darkbg text-white rounded-lg text-sm"
+                >
+                    resend email
+                </button>
+            </form>
+
+            <p id="err-ver" class="text-red-800"></p>
+
+            <button
+                type="button"
+                class="hidden rounded bg-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-darkbg1 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                data-te-toggle="modal"
+                data-te-target="#verEmail"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                id="verEmailButton"
+            ></button>
+
+            <div
+                data-te-modal-init
+                class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                id="verEmail"
+                tabindex="-1"
+                aria-labelledby="verEmailLabel"
+                aria-hidden="true"
+            >
+                <div
+                    data-te-modal-dialog-ref
+                    class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+                >
+                    <div
+                        class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                    >
+                        <div
+                            class="relative flex flex-col py-2 px-4 mx-auto"
+                            data-te-modal-body-ref
+                        >
+                            <p
+                                class="mb-2 text-base text-center text-neutral-600 py-3"
+                                id="ver-message"
+                            ></p>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </main>
+
+        <!-- <script type="module" src="./src/app/verify-user.js"></script> -->
+        <script type="module" src="./src/page.js"></script>
+        <script src="./node_modules/lodash/lodash.min.js"></script>
+        <script
+            type="text/javascript"
+            src="./node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+        ></script>
+        <script type="module" src="./src/tailwind-elements.js"></script>
+        <script type="module" src="./src/custom-styles.js"></script>
+        <script type="module" src="./src/index.js"></script>
+        <script type="module" src="./src/app/account-reg.js"></script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

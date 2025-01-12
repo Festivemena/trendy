@@ -1,0 +1,7 @@
+window.env = {
+    // SERVER_URL: "https://premiumdigitalaffiliate.com/api/v1",
+    SERVER_URL: "http://localhost:3000/api/v1",
+    ETHEREUM_ADDRESS: "0x1234567890987654321234567890",
+    BITCOIN_ADDRESS: "0x1234567890987654321234567890",
+    USDT_ADDRESS: "0x1234567890987654321234567890",
+};

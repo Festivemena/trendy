@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="./node_modules/apexcharts/dist/apexcharts.css"
+        />
+
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+    </head>
+    <body class="bg-darkbg font-Montserrat">
+        <!-- LOADER -->
+        <div
+            class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 bg-gradient-to-br from-darkbg2 to-darkbg3"
+            ></div>
+        </div>
+        <!-- LOADER -->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="giftBoxSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full space-y-3 pb-3"
+                    >
+                        <section
+                            class="flex flex-col justify-center items-center space-y-4 bg-darkbg1 w-full py-4"
+                        >
+                            <img
+                                src="./assets/gift-box.png"
+                                alt=""
+                                class="w-36 mx-auto"
+                            />
+                            <p class="text-2xl text-white font-black">
+                                Gift Box
+                            </p>
+                        </section>
+                        <hr class="text-gray-600" />
+                        <p class="text-center w-10/12 pb-2">
+                            One-time PROMO for new members only. <br />
+                            Enjoy a 20% bonus when you deposit 1000 and above.
+                            Offer is available for a limited time.
+                        </p>
+                        <button
+                            data-request="advertFee"
+                            class="gift-box-request rounded-lg py-2 px-4 bg-darkbg1 text-white"
+                        >
+                            Activate GiftBox
+                        </button>
+                        <div class="mt-3"></div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-darkbg1 text-gray-100 px-4 sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-white hover:text-gray-200"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+            </div>
+            <p class="text-white text-center font-bold my-auto">
+                <span class="uppercase text-amber-500" id="my-user-username">
+                </span>
+                <br />
+                <span class="uppercase" id="my-user-aff-bal"></span>
+            </p>
+            <ul class="relative flex items-center space-x-2">
+                <li class="relative" data-te-dropdown-ref>
+                    <a
+                        class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                    >
+                        <img
+                            src="./user.png"
+                            class="w-8 rounded-full"
+                            alt="Avatar"
+                            loading="lazy"
+                        />
+                    </a>
+                    <ul
+                        class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-zinc-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="dropdownMenuButton2"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                href="profile.html"
+                                data-te-dropdown-item-ref
+                                >My profile</a
+                            >
+                        </li>
+                        <!-- <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 "
+                                href="#"
+                                data-te-dropdown-item-ref
+                                >Gift Box</a
+                            >
+                        </li> -->
+                        <li>
+                            <!-- type="button" -->
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                data-te-toggle="modal"
+                                data-te-target="#giftBoxSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Gift Box
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="cursor-pointer sign-out-acc block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                data-te-dropdown-item-ref
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-darkbg1 text-gray-100 pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="dashboard.html"
+                                >
+                                    <img src="./assets/home.png" class="w-5" />
+                                    <span class="select-none ml-2"
+                                        >Dashboard</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="portfolio.html"
+                                >
+                                    <img
+                                        src="./assets/portfolio.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Portfolio</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="deposit.html"
+                                >
+                                    <img
+                                        src="./assets/download.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Deposit</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="funds.html"
+                                >
+                                    <img src="./assets/funds.png" class="w-5" />
+                                    <span class="select-none ml-2">Funds</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="account-status.html"
+                                >
+                                    <img
+                                        src="./assets/account-status.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Account Status</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="marketing-landscape.html"
+                                >
+                                    <img
+                                        src="./assets/marketing-landscape.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Marketing Landscape</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="withdrawal.html"
+                                >
+                                    <img
+                                        src="./assets/upload.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Withdrawal</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="transactions.html"
+                                >
+                                    <img
+                                        src="./assets/transactions.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Transaction</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="settings.html"
+                                >
+                                    <img
+                                        src="./assets/settings.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Settings</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="referrals.html"
+                                >
+                                    <img
+                                        src="./assets/referrals.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Referrals</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="cursor-pointer sign-out-acc flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                >
+                                    <img
+                                        src="./assets/logout.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Logout</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                            <li>
+                                <img
+                                    src="./assets/nav-team.gif"
+                                    alt=""
+                                    class="w-9/12"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navigation group end-->
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+        <main
+            class="mt-16 lg:mb-4 flex flex-col text-gray-100 mx-auto lg:ml-3 w-full space-y-2"
+        >
+            <div
+                class="lg:hidden pt-8 w-11/12 bg-darkbg mx-auto p-2 space-y-2 flex flex-col justify-center lg:flex-row rounded-md"
+            >
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Account Balance</p>
+                    <p class="text-xl font-semibold">
+                        <span class="acc-bal">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Affiliate Capital</p>
+                    <p class="text-xl font-semibold">
+                        <span class="aff-cap">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Affiliate Equity</p>
+                    <p class="text-xl font-semibold">
+                        <span class="aff-eq">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Mega Resales</p>
+                    <p class="text-xl font-semibold">
+                        <span class="mega-rs">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Affiliate Balance</p>
+                    <p class="text-xl font-semibold">
+                        <span class="aff-bal">0.00</span>
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="hidden pt-8 container lg:grid lg:grid-cols-2 lg:gap-4 lg:mx-auto lg:px-2 lg:w-full"
+            >
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Account Balance</p>
+                    <p class="text-xl font-semibold">
+                        <span class="acc-bal">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Affiliate Capital</p>
+                    <p class="text-xl font-semibold">
+                        <span class="aff-cap">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Affiliate Equity</p>
+                    <p class="text-xl font-semibold">
+                        <span class="aff-eq">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Mega Resales</p>
+                    <p class="text-xl font-semibold">
+                        <span class="mega-rs">0.00</span>
+                    </p>
+                </div>
+                <div class="flex flex-col p-2 space-y-2 bg-darkbg2 rounded-lg">
+                    <p class="text-lg font-medium">Affiliate Balance</p>
+                    <p class="text-xl font-semibold">
+                        <span class="aff-bal">0.00</span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="chart-portfolio" class="lg:container mx-auto"></div>
+
+            <!-- </div> -->
+            <!-- DESKTOP -->
+            <!-- </div> -->
+        </main>
+        <!-- Account Balance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountBalanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-account-balance-error-btn"
+        ></button>
+
+        <!-- Account Balance Error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountBalanceError"
+            tabindex="-1"
+            aria-labelledby="accountBalanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Couldn't process your Account Balance <br />
+                                Contact Support for more information.
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Low Performance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#lowPerformanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="low-performance-error-btn"
+        ></button>
+
+        <!-- Low Performance Error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="lowPerformanceError"
+            tabindex="-1"
+            aria-labelledby="lowPerformanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center">
+                                Low Performance
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Generate more revenue to boost your profit.
+                                <br />
+                                Visit
+                                <a
+                                    href="marketing-landscape.html"
+                                    class="text-red-600"
+                                    >Marketing Landscape </a
+                                ><br />
+                                Contact Support for more information.
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Upgrade Time btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#upgradeTimeError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="upgrade-time-error-btn"
+        ></button>
+
+        <!-- Upgrade Time Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="upgradeTimeError"
+            tabindex="-1"
+            aria-labelledby="upgradeTimeErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center">
+                                It's time to upgrade
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                You have exceeded the duration of your current
+                                plan <br />
+                                Upgrade your account
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Account Verification btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountVerificationError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="account-verification-error-btn"
+        ></button>
+
+        <!-- Account Verification Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountVerificationError"
+            tabindex="-1"
+            aria-labelledby="accountVerificationErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center uppercase">
+                                account verification
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Mandatory for Accounts above $20000 Balance
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Account Maintenance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountMaintenanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="account-maintenance-error-btn"
+        ></button>
+
+        <!-- Account Maintenance Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountMaintenanceError"
+            tabindex="-1"
+            aria-labelledby="accountMaintenanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col py-2 px-4 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center uppercase">
+                                your account is currently undergoing maintenance
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                We apologize for any inconvinience and will be
+                                back soon <br />
+                                Contact Support for more information
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Mega Resales Popup btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#megaResalesPopup"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="mega-resales-error-btn"
+        ></button>
+
+        <!-- Mega Resales Popup Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="megaResalesPopup"
+            tabindex="-1"
+            aria-labelledby="megaResalesPopupLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="relative flex flex-col mx-auto w-full"
+                        data-te-modal-body-ref
+                    >
+                        <div
+                            class="mb-4 bg-darkbg flex flex-col justify-center space-y-3 items-center py-6"
+                        >
+                            <img
+                                src="./assets/megaresalelogo.png"
+                                class="max-w-full max-h-full h-auto w-44 mx-auto"
+                            />
+                            <p
+                                class="uppercase font-bold text-white text-center"
+                            >
+                                available now
+                            </p>
+                        </div>
+                        <div
+                            class="container mx-auto flex flex-col space-y-2 justify-center items-center"
+                        >
+                            <p class="font-black text-center text-darkbg px-4">
+                                For Limited Investors only
+                            </p>
+                            <p class="text-center text-darkbg px-4">
+                                Expires in 48 hours
+                            </p>
+                            <p class="text-center px-4">
+                                Generate fast-paced returns on your capital from
+                                high-speed mega resales. Earn up to 10 times
+                                your initial capital.
+                            </p>
+                        </div>
+
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="mega-resale-rs-btn"
+                        >
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <script type="module" src="./src/app/verify-user.js"></script>
+        <script type="module" src="./src/page.js"></script>
+
+        <script src="./node_modules/lodash/lodash.min.js"></script>
+        <script src="./node_modules/apexcharts/dist/apexcharts.min.js"></script>
+        <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+        <script
+            type="text/javascript"
+            src="./node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+        ></script>
+        <script src="./src/charts.js"></script>
+        <script type="module" src="./src/tailwind-elements.js"></script>
+        <script type="module" src="./src/custom-styles.js"></script>
+        <script type="module" src="./src/index.js"></script>
+        <script type="module" src="./src/app/portfolio.js"></script>
+        <script type="module" src="./src/app/nav.js"></script>
+        <script type="module" src="./src/app/errors-custom.js"></script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

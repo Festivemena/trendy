@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Marketing Landscape</title>
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="stylesheet" href="./css/custom.css" />
+        <link rel="stylesheet" href="./css/nav.css" />
+    </head>
+    <body class="font-Montserrat bg-darkbg2">
+        <div
+            class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            id="loaderContainer"
+        >
+            <div
+                class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+            ></div>
+        </div>
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="giftBoxSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full space-y-3 pb-3"
+                    >
+                        <section
+                            class="flex flex-col justify-center items-center space-y-4 bg-darkbg1 w-full py-4"
+                        >
+                            <img
+                                src="./assets/gift-box.png"
+                                alt=""
+                                class="w-36 mx-auto"
+                            />
+                            <p class="text-2xl text-white font-black">
+                                Gift Box
+                            </p>
+                        </section>
+                        <hr class="text-gray-600" />
+                        <p class="text-center w-10/12 pb-2">
+                            One-time PROMO for new members only. <br />
+                            Enjoy a 20% bonus when you deposit 1000 and above.
+                            Offer is available for a limited time.
+                        </p>
+                        <button
+                            data-request="advertFee"
+                            class="gift-box-request rounded-lg py-2 px-4 bg-darkbg1 text-white"
+                        >
+                            Activate GiftBox
+                        </button>
+                        <div class="mt-3"></div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <nav
+            id="navbar"
+            class="fixed top-0 z-40 flex w-full mb-8 flex-row justify-between bg-darkbg1 text-gray-100 px-4 sm:justify-between"
+        >
+            <div
+                class="flex flex-row space-x-3 items-center py-2 text-lg text-white sm:flex"
+            >
+                <button
+                    id="btnSidebarToggler"
+                    type="button"
+                    class="py-4 text-2xl text-white hover:text-gray-200"
+                >
+                    <svg
+                        id="navClosed"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                    <svg
+                        id="navOpen"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="hidden h-8 w-8"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <img
+                    src="./logo.png"
+                    class="rounded-full py-4 w-8"
+                    alt="logo"
+                />
+            </div>
+            <p class="text-white text-center font-bold my-auto">
+                <span class="uppercase text-amber-500" id="my-user-username">
+                </span>
+                <br />
+                <span class="uppercase" id="my-user-aff-bal"></span>
+            </p>
+            <ul class="relative flex items-center space-x-2">
+                <li class="relative" data-te-dropdown-ref>
+                    <a
+                        class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                    >
+                        <img
+                            src="./user.png"
+                            class="w-8 rounded-full"
+                            alt="Avatar"
+                            loading="lazy"
+                        />
+                    </a>
+                    <ul
+                        class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-[10rem] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-zinc-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="dropdownMenuButton2"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                href="profile.html"
+                                data-te-dropdown-item-ref
+                                >My profile</a
+                            >
+                        </li>
+                        <!-- <li>
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 "
+                                href="#"
+                                data-te-dropdown-item-ref
+                                >Gift Box</a
+                            >
+                        </li> -->
+                        <li>
+                            <!-- type="button" -->
+                            <a
+                                class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+                                data-te-toggle="modal"
+                                data-te-target="#giftBoxSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Gift Box
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="cursor-pointer sign-out-acc block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-gray-700 hover:bg-gray-100 active:text-zinc-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-gray-400 dark:text-gray-100 dark:hover:bg-white/30"
+                                data-te-dropdown-item-ref
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav
+                    id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-darkbg1 text-gray-100 pt-6 pb-8 sm:max-w-xs lg:w-80"
+                >
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="dashboard.html"
+                                >
+                                    <img src="./assets/home.png" class="w-5" />
+                                    <span class="select-none ml-2"
+                                        >Dashboard</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="portfolio.html"
+                                >
+                                    <img
+                                        src="./assets/portfolio.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Portfolio</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="deposit.html"
+                                >
+                                    <img
+                                        src="./assets/download.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Deposit</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="funds.html"
+                                >
+                                    <img src="./assets/funds.png" class="w-5" />
+                                    <span class="select-none ml-2">Funds</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="account-status.html"
+                                >
+                                    <img
+                                        src="./assets/account-status.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Account Status</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="marketing-landscape.html"
+                                >
+                                    <img
+                                        src="./assets/marketing-landscape.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Marketing Landscape</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="withdrawal.html"
+                                >
+                                    <img
+                                        src="./assets/upload.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Withdrawal</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="transactions.html"
+                                >
+                                    <img
+                                        src="./assets/transactions.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Transaction</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="settings.html"
+                                >
+                                    <img
+                                        src="./assets/settings.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Settings</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                    href="referrals.html"
+                                >
+                                    <img
+                                        src="./assets/referrals.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2"
+                                        >Referrals</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="cursor-pointer sign-out-acc flex items-center rounded py-3 pl-3 pr-4 text-[0.875rem] text-gray-50 hover:bg-darkbg4"
+                                >
+                                    <img
+                                        src="./assets/logout.png"
+                                        class="w-5"
+                                    />
+                                    <span class="select-none ml-2">Logout</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div id="google_translate_element"></div>
+                            </li>
+                            <li>
+                                <img
+                                    src="./assets/nav-team.gif"
+                                    alt=""
+                                    class="w-9/12"
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navigation group end-->
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+        <div
+            class="h-full mx-auto mt-16 bg-darkbg rounded-md shadow-md w-11/12 md:w-3/4 lg:w-1/2"
+        >
+            <form
+                class="space-y-4 pt-8 pb-4 flex flex-col justify-center items-center"
+            >
+                <!-- <div class="relative" data-te-dropdown-ref> -->
+                <button
+                    type="button"
+                    class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    data-te-toggle="modal"
+                    data-te-target="#nicheSource"
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                >
+                    Niches
+                </button>
+
+                <div class="relative" data-te-dropdown-ref>
+                    <button
+                        class="flex items-center text-center whitespace-nowrap rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                        type="button"
+                        id="trafficSource1"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                        data-te-ripple-init
+                        data-te-ripple-color="light"
+                    >
+                        Global Reach
+                        <span class="ml-2 w-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="h-5 w-5"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+                    <ul
+                        class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="trafficSource"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li>
+                            <button
+                                type="button"
+                                class="inline-block rounded bg-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-darkbg1 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                data-te-toggle="modal"
+                                data-te-target="#trafficSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Traffic Source
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" data-te-dropdown-ref>
+                    <button
+                        class="flex items-center whitespace-nowrap rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                        type="button"
+                        id="promotion"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                        data-te-ripple-init
+                        data-te-ripple-color="light"
+                    >
+                        Promotion
+                        <span class="ml-2 w-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="h-5 w-5"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+                    <ul
+                        class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="promotion"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li>
+                            <button
+                                type="button"
+                                class="inline-block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                                data-te-toggle="modal"
+                                data-te-target="#advertFeeSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Advert Fee
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" data-te-dropdown-ref>
+                    <button
+                        class="flex items-center whitespace-nowrap rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                        type="button"
+                        id="smartLink"
+                        data-te-dropdown-toggle-ref
+                        aria-expanded="false"
+                        data-te-ripple-init
+                        data-te-ripple-color="light"
+                    >
+                        Links
+                        <span class="ml-2 w-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="h-5 w-5"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+                    <ul
+                        class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                        aria-labelledby="smartLink"
+                        data-te-dropdown-menu-ref
+                    >
+                        <li class="border-b-2 border-gray-300">
+                            <a
+                                class="text-center block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                                href="product-links.html"
+                                data-te-dropdown-item-ref
+                                >Products and Product Links</a
+                            >
+                        </li>
+                        <li class="border-b-2 border-gray-300">
+                            <button
+                                type="button"
+                                class="text-center inline-block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                                data-te-toggle="modal"
+                                data-te-target="#smartLinksSource"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                            >
+                                Smart Links
+                            </button>
+                        </li>
+                        <!-- <li>
+                     <a
+                        class="text-center block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                        href="#"
+                        data-te-dropdown-item-ref
+                        >How the Affiliate Program Works</a
+                     >
+                  </li> -->
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <!-- REGIONS -->
+        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-3 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="trafficSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-11/12 flex-col rounded-lg mx-auto border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <!--Modal title-->
+                        <h5
+                            class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                            id="trafficSourceLabel"
+                        >
+                            Traffic Source
+                        </h5>
+                        <!--Close button-->
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-6 w-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!--Modal body-->
+                    <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+                    <!-- REGION 1 -->
+                    <a
+                        href="deposit.html"
+                        class="block w-11/12 mb-2 mx-auto rounded-lg bg-darkbg2 text-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+                    >
+                        <h5
+                            class="mb-4 text-xl font-medium text-center leading-tight text-white dark:text-neutral-50"
+                        >
+                            Region 1
+                        </h5>
+                        <button
+                            type="button"
+                            class="inline-block rounded-r-3xl mb-2 mr-auto -m-6 font-semibold bg-white disabled px-6 pb-2 pt-2.5 text-xs uppercase leading-normal text-darkbg shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                        >
+                            Highest/Fastest Sales <br />
+                            High Sales and high profit
+                        </button>
+                        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+                        <ul class="w-96 text-center">
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                United Kingdom
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                United States
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Australia
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Norway
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Germany
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Switzerland
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                France
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Austria
+                            </li>
+                        </ul>
+                    </a>
+                    <!-- REGION 1 -->
+
+                    <!-- REGION 2 -->
+                    <a
+                        href="deposit.html"
+                        class="block w-11/12 mb-2 mx-auto rounded-lg bg-red-600 text-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+                    >
+                        <h5
+                            class="mb-4 text-xl font-medium text-center leading-tight text-white dark:text-neutral-50"
+                        >
+                            Region 2
+                        </h5>
+                        <button
+                            type="button"
+                            class="inline-block rounded-r-3xl mb-2 mr-auto -m-6 font-semibold bg-white disabled px-6 pb-2 pt-2.5 text-xs uppercase leading-normal text-red-600 transition duration-150 ease-in-out"
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                        >
+                            Medium Sales <br />
+                            Medium/Average Sales and profit
+                        </button>
+                        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+                        <ul class="w-96 text-center">
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Denmark
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Sweden
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Finland
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Canada
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Netherlands
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Italy
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Belgium
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Ireland
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                New Zealand
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Spain
+                            </li>
+                        </ul>
+                    </a>
+                    <!-- REGION 2 -->
+
+                    <!-- REGION 3 -->
+                    <a
+                        href="deposit.html"
+                        class="block w-11/12 mb-2 mx-auto rounded-lg bg-gray-600 text-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+                    >
+                        <h5
+                            class="mb-4 text-xl font-medium text-center leading-tight text-white dark:text-neutral-50"
+                        >
+                            Region 3
+                        </h5>
+                        <button
+                            type="button"
+                            class="inline-block rounded-r-3xl mb-2 mr-auto -m-6 font-semibold bg-white disabled px-6 pb-2 pt-2.5 text-xs uppercase leading-normal text-gray-600 transition duration-150 ease-in-out"
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                        >
+                            Medium/Low Sales <br />
+                            Average Sales and profit
+                        </button>
+                        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+                        <ul class="w-96 text-center">
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Bosnia-Herzegovina
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Brazil
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Bulgaria
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Czech Republic
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Cyprus
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Greece
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Hong Kong
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                India
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Indonesia
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Mexico
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Poland
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Romania
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Russian federation
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Serbia
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Slovakia
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                United Arab Emirates
+                            </li>
+                            <li
+                                class="w-full border-neutral-100 border-opacity-100 text-left py-1 dark:border-opacity-50"
+                            >
+                                Japan
+                            </li>
+                        </ul>
+                    </a>
+                    <!-- REGION 3 -->
+                </div>
+            </div>
+        </div>
+        <!-- REGIONS -->
+
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-3 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="nicheSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-11/12 mx-auto flex-col rounded-lg border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <!--Modal title-->
+                        <h5
+                            class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                            id="trafficSourceLabel"
+                        >
+                            Select your preferred Niche
+                        </h5>
+                        <!--Close button-->
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-6 w-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full pb-6"
+                    >
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#technology-section"
+                                class="text-darkbg4"
+                                >Technology ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="technology"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="technology-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#wealth-building-section"
+                                class="text-darkbg4"
+                                >Wealth Building ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="wealth-building"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="wealth-building-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#fashion-section"
+                                class="text-darkbg4"
+                                >Fashion ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="fashion"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="fashion-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#education-section"
+                                class="text-darkbg4"
+                                >Education ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="education"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="education-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#gaming-section"
+                                class="text-darkbg4"
+                                >Gaming ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="gaming"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="gaming-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#home-decor-section"
+                                class="text-darkbg4"
+                                >Home Decor ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="home-decor"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="home-decor-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#health-wellness-section"
+                                class="text-darkbg4"
+                                >Health and Wellness ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="health-and-wellness"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="health-and-wellness-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#finance-section"
+                                class="text-darkbg4"
+                                >Finance ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="finance"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="finance-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#food-section"
+                                class="text-darkbg4"
+                                >Food ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="food"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="food-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#gardening-section"
+                                class="text-darkbg4"
+                                >Gardening ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="gardening"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="gardening-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#beauty-cosmetics-section"
+                                class="text-darkbg4"
+                                >Beauty and Cosmetics ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="beauty-and-cosmetics"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="beauty-and-cosmetics-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#art-section"
+                                class="text-darkbg4"
+                                >Art ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="art"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="art-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#travel-section"
+                                class="text-darkbg4"
+                                >Travel ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="travel"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="travel-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#sports-section"
+                                class="text-darkbg4"
+                                >Sports ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="sports"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="sports-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#luxury-section"
+                                class="text-darkbg4"
+                                >Luxury ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="luxury"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="luxury-cancel"
+                            />
+                        </li>
+                        <li
+                            class="flex flex-row w-11/12 justify-between items-center p-2"
+                        >
+                            <a
+                                href="niches.html#pets-section"
+                                class="text-darkbg4"
+                                >Pets ></a
+                            >
+                            <input
+                                type="button"
+                                value="Select"
+                                class="niche-icon cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="pets"
+                            />
+                            <input
+                                type="button"
+                                value="Pending | Cancel"
+                                class="hidden cursor-pointer bg-darkbg text-white rounded-lg py-1 px-3"
+                                data-plan-type="pets-cancel"
+                            />
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="advertFeeSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!-- <div
+               class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-11/12 mx-auto flex-col rounded-lg border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+            > -->
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <!--Modal title-->
+                        <h5
+                            class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                            id="trafficSourceLabel"
+                        >
+                            Adverts
+                        </h5>
+                        <!--Close button-->
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-6 w-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full space-y-3 pb-3"
+                    >
+                        <p class="text-center w-10/12">
+                            Ads help generate traffic and increase the reach of
+                            products and product links in your preferred traffic
+                            source zone. <br />Ads are necessary to boost your
+                            profit.
+                        </p>
+                        <button
+                            data-request="advertFee"
+                            class="advert-fee-req rounded-lg p-2 bg-darkbg1 text-white"
+                        >
+                            Request For Advert
+                        </button>
+                        <div class="mt-3"></div>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="smartLinksSource"
+            tabindex="-1"
+            aria-labelledby="trafficSourceLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <!-- <div
+               class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-11/12 mx-auto flex-col rounded-lg border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600"
+            > -->
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <!--Modal title-->
+                        <h5
+                            class="text-lg font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                            id="trafficSourceLabel"
+                        >
+                            Smartlink - Increase your ROI with smart link
+                        </h5>
+                        <!--Close button-->
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-6 w-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!--Modal body-->
+                    <div
+                        class="flex flex-col justify-center items-center w-full space-y-3 pb-3"
+                    >
+                        <p class="text-left w-10/12 leading-7">
+                            Turn traffic into profit using smartlink. <br />
+                            SmartLink is a special URL designed to take visitors
+                            to the most relevant offers and bring affiliate the
+                            highest revenue, Smartlink can help increase your
+                            profit by 37%
+                        </p>
+                        <button
+                            data-request="smartLinkFee"
+                            class="smartlink-fee-req rounded-lg p-2 bg-darkbg1 text-white"
+                        >
+                            Request for SmartLink
+                        </button>
+                        <div class="mt-3"></div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Account Balance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountBalanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="trigger-account-balance-error-btn"
+        ></button>
+
+        <!-- Account Balance Error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountBalanceError"
+            tabindex="-1"
+            aria-labelledby="accountBalanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Couldn't process your Account Balance <br />
+                                Contact Support for more information.
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Low Performance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#lowPerformanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="low-performance-error-btn"
+        ></button>
+
+        <!-- Low Performance Error Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="lowPerformanceError"
+            tabindex="-1"
+            aria-labelledby="lowPerformanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/warning.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center">
+                                Low Performance
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Generate more revenue to boost your profit.
+                                <br />
+                                Visit
+                                <a
+                                    href="marketing-landscape.html"
+                                    class="text-red-600"
+                                    >Marketing Landscape </a
+                                ><br />
+                                Contact Support for more information.
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Upgrade Time btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#upgradeTimeError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="upgrade-time-error-btn"
+        ></button>
+
+        <!-- Upgrade Time Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="upgradeTimeError"
+            tabindex="-1"
+            aria-labelledby="upgradeTimeErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center">
+                                It's time to upgrade
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                You have exceeded the duration of your current
+                                plan <br />
+                                Upgrade your account
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Account Verification btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountVerificationError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="account-verification-error-btn"
+        ></button>
+
+        <!-- Account Verification Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountVerificationError"
+            tabindex="-1"
+            aria-labelledby="accountVerificationErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col p-2 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center uppercase">
+                                account verification
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                Mandatory for Accounts above $20000 Balance
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Account Maintenance btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#accountMaintenanceError"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="account-maintenance-error-btn"
+        ></button>
+
+        <!-- Account Maintenance Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="accountMaintenanceError"
+            tabindex="-1"
+            aria-labelledby="accountMaintenanceErrorLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-darkbg1 p-2 dark:border-b dark:border-neutral-500 dark:bg-transparent"
+                    >
+                        <h6
+                            class="text-xl font-medium leading-normal text-white"
+                            id="selected-plan-type"
+                        ></h6>
+                        <button
+                            type="button"
+                            class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            data-te-modal-dismiss
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="relative flex flex-col py-2 px-4 mx-auto"
+                        data-te-modal-body-ref
+                    >
+                        <div class="mb-4">
+                            <img
+                                src="./assets/alarm.png"
+                                class="max-w-full max-h-full h-auto w-10 mx-auto"
+                            />
+                        </div>
+                        <div class="">
+                            <p class="font-black text-center uppercase">
+                                your account is currently undergoing maintenance
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="my-2 text-center">
+                                We apologize for any inconvinience and will be
+                                back soon <br />
+                                Contact Support for more information
+                            </p>
+                        </div>
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="add-mega-resale"
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Mega Resales Popup btn -->
+        <button
+            type="button"
+            class="hidden rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            data-te-toggle="modal"
+            data-te-target="#megaResalesPopup"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            id="mega-resales-error-btn"
+        ></button>
+
+        <!-- Mega Resales Popup Modal-->
+        <div
+            data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            id="megaResalesPopup"
+            tabindex="-1"
+            aria-labelledby="megaResalesPopupLabel"
+            aria-hidden="true"
+        >
+            <div
+                data-te-modal-dialog-ref
+                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+            >
+                <div
+                    class="pointer-events-auto relative flex w-10/12 mx-auto flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-4 outline-none dark:bg-surface-dark"
+                >
+                    <div
+                        class="relative flex flex-col mx-auto w-full"
+                        data-te-modal-body-ref
+                    >
+                        <div
+                            class="mb-4 bg-darkbg flex flex-col justify-center space-y-3 items-center py-6"
+                        >
+                            <img
+                                src="./assets/megaresalelogo.png"
+                                class="max-w-full max-h-full h-auto w-44 mx-auto"
+                            />
+                            <p
+                                class="uppercase font-bold text-white text-center"
+                            >
+                                available now
+                            </p>
+                        </div>
+                        <div
+                            class="container mx-auto flex flex-col space-y-2 justify-center items-center"
+                        >
+                            <p class="font-black text-center text-darkbg px-4">
+                                For Limited Investors only
+                            </p>
+                            <p class="text-center text-darkbg px-4">
+                                Expires in 48 hours
+                            </p>
+                            <p class="text-center px-4">
+                                Generate fast-paced returns on your capital from
+                                high-speed mega resales. Earn up to 10 times
+                                your initial capital.
+                            </p>
+                        </div>
+
+                        <div class="">
+                            <small class="my-2" id="mgrs-error-message"></small>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md p-4"
+                    >
+                        <button
+                            type="button"
+                            class="mr-2 inline-block rounded bg-darkbg1 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-darkbg1 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-darkbg1 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                            data-te-ripple-init
+                            data-te-modal-dismiss
+                            data-te-ripple-color="light"
+                            id="mega-resale-rs-btn"
+                        >
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <script type="module" src="./src/app/verify-user.js"></script>
+        <script type="module" src="./src/page.js"></script>
+
+        <script
+            type="text/javascript"
+            src="./node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+        ></script>
+        <script type="module" src="./src/tailwind-elements.js"></script>
+        <script type="module" src="./src/index.js"></script>
+        <script type="module" src="./src/app/marketing-landscape.js"></script>
+        <script type="module" src="./src/app/nav.js"></script>
+        <script type="module" src="./src/app/errors-custom.js"></script>
+        <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Starter-Growth Plan",
+        "desc": "A beginner-level affiliate digital investment plan aimed at individuals who are new to affiliate marketing in the investment sector. It typically offers basic features and lower commission rates, making it accessible for those just starting out.",
+        "min": "100",
+        "max": "499",
+        "duration": "3 days"
+    },
+    {
+        "title": "Basic-Growth Plan",
+        "desc": "Similar to the starter plan but with slightly more advanced features and potentially higher commission rates. It may require a bit more experience or a higher level of commitment from affiliates.",
+        "min": "500",
+        "max": "1499",
+        "duration": "3 days"
+    },
+    {
+        "title": "Bronze-Growth Plan",
+        "desc": "An intermediate-level plan designed for affiliates who have some experience in digital investment affiliate marketing. It likely offers additional tools, resources, and higher commission rates compared to basic plans.",
+        "min": "1500",
+        "max": "4999",
+        "duration": "1 week"
+    },
+    {
+        "title": "Gold-Growth Plan",
+        "desc": "A more advanced affiliate digital investment plan suitable for seasoned marketers who have a proven track record of success. It usually provides premium features, dedicated support, and significantly higher commission rates.",
+        "min": "5000",
+        "max": "9999",
+        "duration": "1 week"
+    },
+    {
+        "title": "Premium-Growth Plan",
+        "desc": "A top-tier affiliate digital investment plan reserved for top performers and high-volume affiliates. It offers the highest commission rates, exclusive benefits, and personalized support to help affiliates maximize their earnings potential.",
+        "min": "10000",
+        "max": "19999",
+        "duration": "1 week"
+    }
+]

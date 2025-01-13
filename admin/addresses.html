@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Addresses</title>
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="../css/index.css" />
+        <link rel="stylesheet" href="../css/fonts.css" />
+        <link rel="stylesheet" href="../css/custom.css" />
+        <link rel="stylesheet" href="../css/nav.css" />
+    </head>
+    <body class="bg-darkbg text-white font-Montserrat">
+        <div class="container flex flex-col space-y-4 px-8 py-4 mx-auto">
+            <form
+                class="w-full flex flex-col justify-center items-center space-y-2 mx-auto py-4 text-sm"
+                id="addresses-list"
+            >
+                <section
+                    class="container flex flex-col justify-center items-center space-y-2"
+                    id="sub-sec"
+                >
+                    <input
+                        type="text"
+                        class="p-2 rounded-lg border-none shadow-xl outline-none text-sm text-darkbg"
+                        id="new-add"
+                    />
+                    <select
+                        name="p-mth"
+                        id="p-mth"
+                        class="outline-none rounded-lg text-darkbg"
+                    >
+                        <option value="">Select deposit Method</option>
+                        <option value="BTC">Bitcoin</option>
+                        <option value="ETH">Ethereum</option>
+                        <option value="USDT">USDT (Tether)</option>
+                    </select>
+                    <button
+                        type="submit"
+                        class="rounded-lg uppercase bg-darkbg4 shadow-lg shadow-blue-400 outline-none py-2 px-4 text-white"
+                    >
+                        save
+                    </button>
+                </section>
+            </form>
+        </div>
+
+        <script type="module" src="./js/addresses.js"></script>
+    <script
+            src="//code.tidio.co/8ebmnydgqvz1zz0shzsblzusxu5l7c2b.js"
+            async
+        ></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.content-container.hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 5s ease-in-out;
+}
+
+.content-container {
+    max-height: 1000px;
+}
+
+body {
+    top: 0px !important;
+}
+
+body > .skiptranslate > iframe.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+    color: #00376b !important;
+    font-family: "Montserrat", sans-serif;
+}
+
+.goog-te-gadget > span {
+    display: none !important;
+}
+
+#alert-msg.show {
+    transform: translateX(0);
+}
+
+#alert-msg.hide {
+    transform: translateX(-120%);
+    /* transform: translateX(-100%); */
+}
